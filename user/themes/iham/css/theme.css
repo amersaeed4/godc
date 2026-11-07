@@ -680,6 +680,7 @@ p { margin: 0 0 1rem; }
 .hero__doc-info { display: flex; flex-direction: column; gap: .15rem; padding: .85rem 1rem 1rem; }
 .hero__doc-tag { font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--olive-300); }
 .hero__doc strong { font: 600 1.02rem/1.25 var(--font-display); color: var(--white); }
+.hero__doc-focus { margin-top: .1rem; font-size: .72rem !important; color: rgba(216, 219, 140, .85) !important; }
 .hero__doc small { font-size: .76rem; line-height: 1.4; color: rgba(251, 248, 242, .72); }
 .hero__doc-more { margin-top: .45rem; display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; font-weight: 600; color: var(--olive-300); }
 @media (max-width: 900px) { .hero__media { max-width: 560px; } }

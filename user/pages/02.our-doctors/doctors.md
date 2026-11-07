@@ -3,7 +3,7 @@ title: Our Doctors
 menu: Our Doctors
 summary: Meet the doctors leading care at our centre.
 metadata:
-  description: "Meet our doctors: Prof. Dr. Mohsin Gillani, advanced laparoscopic, bariatric and diabetes surgeon, and Dr. Arooj Fatima Gillani, critical care physician and clinical nutritionist."
+  description: "Meet our doctors: Prof. Dr. Mohsin Gillani, advanced laparoscopic, bariatric and diabetes surgeon, and Dr. Arooj Fatima Gillani, lifestyle medicine specialist in obesity, metabolic syndrome and clinical nutrition."
   keywords: Prof Dr Mohsin Gillani, Dr Arooj Fatima Gillani, bariatric surgeon Lahore, clinical nutritionist Lahore
 hero:
   eyebrow: Our Doctors

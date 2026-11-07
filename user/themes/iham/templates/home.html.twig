@@ -35,9 +35,10 @@
           <a class="hero__doc{{ loop.first ? ' hero__doc--lead' : '' }}" href="{{ dp.url }}">
             <span class="hero__doc-photo">{{ ui.img(dp, dp.header.profile.card_image ?: dp.header.profile.image, dp.header.profile.name) }}</span>
             <span class="hero__doc-info">
-              <span class="hero__doc-tag">{{ loop.first ? 'Lead surgeon' : 'Clinical nutrition' }}</span>
+              <span class="hero__doc-tag">{{ loop.first ? 'Lead surgeon' : 'Lifestyle medicine' }}</span>
               <strong>{{ dp.header.profile.name }}</strong>
               <small>{{ dp.header.profile.role }}</small>
+              {% if dp.header.profile.focus %}<small class="hero__doc-focus">{{ dp.header.profile.focus }}</small>{% endif %}
               <span class="hero__doc-more">View profile {{ ui.icon('arrow-right') }}</span>
             </span>
           </a>

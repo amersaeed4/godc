@@ -51,8 +51,8 @@ team:
     - image: Dr-Arooj-Gillani-IHAM-Lifestyle-Medicine.webp
       role: Chief Executive Officer (CEO)
       name: Dr. Arooj Fatima Gillani
-      credentials: MBBS, M.Phil. Public Health Nutrition, F.C.P.S.-I (Anesthesiology)
-      affiliations: CMI, WHO, UNICEF, USAID, Aga Khan University Certified
+      credentials: MBBS, MPH Nutrition (England), Critical Care Certification (Aga Khan), Professional Global Development (England)
+      affiliations: Lifestyle Medicine Specialist · Obesity & Metabolic Syndrome · Clinical, Critical Care, Geriatric & Oncological Nutrition
     - image: Dr-Mubashir.webp
       role: Director Planning and Development
       name: Dr. Mubashir Sohail

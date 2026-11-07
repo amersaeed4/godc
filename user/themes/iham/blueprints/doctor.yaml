@@ -27,6 +27,9 @@ form:
             header.profile.tagline:
               type: text
               label: Tagline (small line above the name)
+            header.profile.focus:
+              type: text
+              label: Specialty line (optional, shown on the home page card under the role)
             header.profile.bio:
               type: textarea
               label: Short bio
