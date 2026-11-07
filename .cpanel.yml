@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/godcpk/public_html/
-    - /bin/cp -R index.php .htaccess composer.json bin system vendor user webserver-configs $DEPLOYPATH
+    - for i in $(ls -A | grep -vE '^(.git|.cpanel.yml|cache|logs|tmp|backup|images|assets|cgi-bin|.well-known)$'); do /bin/cp -R "$i" $DEPLOYPATH; done
     - /usr/bin/find $DEPLOYPATH -type d -not -path "*/cgi-bin*" -exec chmod 755 {} \;
     - /usr/bin/find $DEPLOYPATH -type f -not -path "*/cgi-bin*" -exec chmod 644 {} \;
     - /bin/rm -rf $DEPLOYPATH/cache/*
