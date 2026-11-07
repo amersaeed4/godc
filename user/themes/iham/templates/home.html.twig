@@ -1,0 +1,233 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% set hero = h.hero %}
+{% set first_stat = h.stats.items|first %}
+<section class="hero">
+  {% if hero.video_url %}<video class="hero__video" src="{{ hero.video_url }}" autoplay muted loop playsinline aria-hidden="true"></video>{% endif %}
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      {% if hero.eyebrow %}<p class="eyebrow eyebrow--light">{{ hero.eyebrow }}</p>{% endif %}
+      <h1>{{ hero.title }}</h1>
+      <p class="hero__lead">{{ hero.text }}</p>
+      <div class="hero__text">{{ hero.text2|markdown }}</div>
+      <div class="btn-row">
+        {% if hero.primary_label %}<a class="btn btn-accent btn-lg" href="{{ hero.primary_link|href }}">{{ hero.primary_label }} {{ ui.icon('arrow-right') }}</a>{% endif %}
+        {% if hero.secondary_label %}<a class="btn btn-ghost btn-lg" href="{{ hero.secondary_link|href }}">{{ hero.secondary_label }}</a>{% endif %}
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="hero__photo">
+        <div class="hero__frame">{{ ui.img(page, hero.image, hero.title, '', true) }}</div>
+        {% if first_stat %}
+        <div class="hero__badge">
+          <span class="hero__badge-value">{{ first_stat.value }}</span>
+          <span class="hero__badge-label">{{ first_stat.label }}</span>
+        </div>
+        {% endif %}
+      </div>
+      {% if h.doctors.items|length %}
+      <div class="hero__team">
+        {% for it in h.doctors.items %}
+          {% set dp = page.find(it.page) %}
+          {% if dp %}
+          <a class="hero__doc{{ loop.first ? ' hero__doc--lead' : '' }}" href="{{ dp.url }}">
+            <span class="hero__doc-photo">{{ ui.img(dp, dp.header.profile.card_image ?: dp.header.profile.image, dp.header.profile.name) }}</span>
+            <span class="hero__doc-info">
+              <span class="hero__doc-tag">{{ loop.first ? 'Lead surgeon' : 'Clinical nutrition' }}</span>
+              <strong>{{ dp.header.profile.name }}</strong>
+              <small>{{ dp.header.profile.role }}</small>
+              <span class="hero__doc-more">View profile {{ ui.icon('arrow-right') }}</span>
+            </span>
+          </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% if h.highlights|length %}
+<section class="highlights">
+  <div class="container">
+    <ul class="highlights__grid">
+      {% for it in h.highlights %}
+      <li class="highlight">
+        <span class="icon-badge">{{ ui.icon(it.icon) }}</span>
+        <h3>{{ it.title }}</h3>
+        <p>{{ it.text }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+{% if h.doctors.items|length %}
+<section class="section section--doctors" id="doctors">
+  <div class="container">
+    {{ ui.head(h.doctors.eyebrow, h.doctors.title, h.doctors.text) }}
+    <div class="doctor-list">
+      {% for it in h.doctors.items %}
+        {% set dp = page.find(it.page) %}
+        {% if dp %}{% include 'partials/doctor-feature.html.twig' with {'dp': dp, 'featured': loop.first} %}{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% set sp = h.spotlight.page ? page.find(h.spotlight.page) : null %}
+{% if sp %}
+<section class="section spotlight">
+  <div class="container">
+    <div class="spotlight__head">
+      <div class="spotlight__copy">
+        {% if h.spotlight.eyebrow %}<p class="eyebrow eyebrow--light">{{ h.spotlight.eyebrow }}</p>{% endif %}
+        <h2>{{ h.spotlight.title }}</h2>
+        <div class="spotlight__text">{{ h.spotlight.text|markdown }}</div>
+        {% if h.spotlight.button_label %}<p><a class="btn btn-accent" href="{{ h.spotlight.button_link|href }}">{{ h.spotlight.button_label }} {{ ui.icon('arrow-right') }}</a></p>{% endif %}
+      </div>
+      {% if sp.header.stats|length %}
+      <ul class="spotlight__stats">
+        {% for st in sp.header.stats %}<li><span class="spotlight__value">{{ st.value }}</span><span class="spotlight__label">{{ st.label }}</span></li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% if sp.header.specialisations.items|length %}
+    <div class="card-grid card-grid--3 spotlight__cards">
+      {% for it in sp.header.specialisations.items %}
+      <a class="page-card" href="{{ it.link|href }}">
+        <span class="page-card__media">{{ ui.img(sp, it.image, it.title) }}</span>
+        <span class="page-card__body">
+          <span class="page-card__title">{{ it.title }}</span>
+          <span class="page-card__text">{{ it.text }}</span>
+          <span class="page-card__more">See more {{ ui.icon('arrow-right') }}</span>
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% set services_root = page.find('/our-services') %}
+{% if services_root and h.surgical.group %}
+{% set surgical_pages = services_root.children.published|filter(c => c.header.nav_group == h.surgical.group) %}
+{% if surgical_pages|length %}
+<section class="section section--cream">
+  <div class="container">
+    {{ ui.head(h.surgical.eyebrow, h.surgical.title, h.surgical.text) }}
+    <div class="card-grid card-grid--4">
+      {% for c in surgical_pages %}{% include 'partials/page-card.html.twig' with {'card': c} %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endif %}
+
+{% set why = h.why %}
+<section class="section">
+  <div class="container split">
+    <div class="split__media">
+      <div class="media-frame">{{ ui.img(page, why.image, why.title) }}</div>
+    </div>
+    <div class="split__copy">
+      {% if why.eyebrow %}<p class="eyebrow">{{ why.eyebrow }}</p>{% endif %}
+      <h2>{{ why.title }}</h2>
+      <div class="prose">{{ why.text|markdown }}</div>
+    </div>
+  </div>
+</section>
+
+{% set services_page = page.find('/our-services') %}
+{% if services_page %}
+<section class="section section--mint">
+  <div class="container">
+    {{ ui.head('Dr Arooj Fatima Gillani · Clinical nutrition', 'Clinical nutrition services built around your condition', 'Every nutrition protocol is part of your wider medical treatment plan and tailored to your diagnosis.') }}
+    <div class="card-grid card-grid--4">
+      {% for c in services_page.children.published if c.header.nav_group == 'Clinical Nutrition Services' %}
+        {% include 'partials/page-card.html.twig' with {'card': c} %}
+      {% endfor %}
+    </div>
+    <p class="center mt"><a class="btn btn-outline" href="{{ services_page.url }}">View all services {{ ui.icon('arrow-right') }}</a></p>
+  </div>
+</section>
+{% endif %}
+
+{% set con = h.consultations %}
+<section class="section">
+  <div class="container split split--reverse">
+    <div class="split__media">
+      <div class="media-frame">{{ ui.img(page, con.image, con.title) }}</div>
+    </div>
+    <div class="split__copy">
+      {% if con.eyebrow %}<p class="eyebrow">{{ con.eyebrow }}</p>{% endif %}
+      <h2>{{ con.title }}</h2>
+      <div class="prose">{{ con.text|markdown }}</div>
+      {% if con.items %}
+        <p class="list-title">{{ con.list_title }}</p>
+        {{ ui.checklist(con.items|lines) }}
+      {% endif %}
+      {% if con.button_label %}<p><a class="btn btn-primary" href="{{ con.button_link|href }}">{{ con.button_label }} {{ ui.icon('arrow-right') }}</a></p>{% endif %}
+    </div>
+  </div>
+</section>
+
+{% if h.stats.items|length %}
+<section class="stats-band">
+  <div class="container">
+    <h2 class="stats-band__title">{{ h.stats.title }}</h2>
+    <ul class="stats-grid">
+      {% for s in h.stats.items %}
+      <li><span class="stat-value">{{ s.value }}</span><span class="stat-label">{{ s.label }}</span></li>
+      {% endfor %}
+    </ul>
+    {% if h.stats.link %}<p class="center"><a class="link-arrow link-arrow--light" href="{{ h.stats.link|href }}">{{ h.stats.link_label ?: 'Learn more' }} {{ ui.icon('arrow-right') }}</a></p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% set org = h.organisations %}
+<section class="section section--cream">
+  <div class="container split">
+    <div class="split__media">
+      <div class="media-frame">{{ ui.img(page, org.image, org.title) }}</div>
+    </div>
+    <div class="split__copy">
+      {% if org.eyebrow %}<p class="eyebrow">{{ org.eyebrow }}</p>{% endif %}
+      <h2>{{ org.title }}</h2>
+      <div class="prose">{{ org.text|markdown }}</div>
+      {% if org.button_label %}<p><a class="btn btn-primary" href="{{ org.button_link|href }}">{{ org.button_label }} {{ ui.icon('arrow-right') }}</a></p>{% endif %}
+    </div>
+  </div>
+</section>
+
+{% set blog = page.find('/blog') %}
+{% if blog %}
+{% set posts = blog.children.published.order('date', 'desc').slice(0, 3) %}
+<section class="section">
+  <div class="container">
+    {{ ui.head(h.education.eyebrow, h.education.title, h.education.text) }}
+    <div class="card-grid card-grid--3">
+      {% for post in posts %}{% include 'partials/post-card.html.twig' %}{% endfor %}
+    </div>
+    {% if h.education.button_label %}<p class="center mt"><a class="btn btn-outline" href="{{ h.education.button_link|href }}">{{ h.education.button_label }} {{ ui.icon('arrow-right') }}</a></p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% include 'partials/cta-band.html.twig' with {'cta': h.cta} %}
+
+{% if h.booking.form %}
+<section class="section section--mint" id="book">
+  <div class="container container--narrow">
+    {{ ui.head('Book online', h.booking.title, h.booking.text) }}
+    <div class="form-card">{% include 'partials/form.html.twig' with {'form_name': h.booking.form} %}</div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

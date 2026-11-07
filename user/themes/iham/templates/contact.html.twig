@@ -1,0 +1,54 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% set theme = config.themes.iham %}
+{% set contact = theme.contact %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title, 'lead': h.hero.text} %}
+
+<section class="section" id="book">
+  <div class="container contact-layout">
+    <div class="form-card">
+      <h2 class="form-card__title">Book a Consultation</h2>
+      {% include 'partials/form.html.twig' with {'form_name': h.form_ref} %}
+    </div>
+    <aside class="contact-side">
+      {% if theme.locations|length %}
+      <div class="clinic-stack">
+        {% for loc in theme.locations %}
+        <div class="side-card side-card--contact clinic-card">
+          <p class="clinic-card__doctor">{{ loc.doctor }}</p>
+          <h3>{{ loc.name }}</h3>
+          <ul class="contact-list contact-list--lg">
+            <li>{{ ui.icon('map-pin') }}<div><span class="contact-list__label">Address</span><a href="{{ loc.map_link }}" target="_blank" rel="noopener">{{ loc.address }}</a></div></li>
+            <li>{{ ui.icon('phone') }}<div><span class="contact-list__label">Phone</span><a href="tel:{{ loc.phone|tel }}">{{ loc.phone }}</a></div></li>
+            {% if loc.email %}<li>{{ ui.icon('mail') }}<div><span class="contact-list__label">Email</span><a href="mailto:{{ loc.email }}">{{ loc.email }}</a></div></li>{% endif %}
+            {% if loc.hours %}<li>{{ ui.icon('clock') }}<div><span class="contact-list__label">Opening hours</span><span>{{ loc.hours }}</span></div></li>{% endif %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="side-card side-card--contact">
+        <h3>{{ h.details.title }}</h3>
+        <p>{{ h.details.text }}</p>
+        <ul class="contact-list contact-list--lg">
+          <li>{{ ui.icon('phone') }}<div><span class="contact-list__label">Phone</span><a href="tel:{{ contact.phone|tel }}">{{ contact.phone }}</a></div></li>
+          <li>{{ ui.icon('mail') }}<div><span class="contact-list__label">Email</span><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></div></li>
+          <li>{{ ui.icon('map-pin') }}<div><span class="contact-list__label">Address</span><a href="{{ contact.map_link }}" target="_blank" rel="noopener">{{ contact.address }}</a></div></li>
+        </ul>
+        <h3 class="mt-sm">{{ h.hours_title ?: 'Opening Hours' }}</h3>
+        <dl class="hours">
+          {% for r in theme.hours %}<div><dt>{{ r.days }}</dt><dd>{{ r.time }}</dd></div>{% endfor %}
+        </dl>
+      </div>
+      {% endif %}
+      {% if contact.map_embed %}
+      <div class="map-frame"><iframe src="{{ contact.map_embed }}" title="Map to {{ theme.brand.name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      {% else %}
+      <a class="map-link" href="{{ contact.map_link }}" target="_blank" rel="noopener">{{ ui.icon('map-pin') }} Get directions {{ ui.icon('external') }}</a>
+      {% endif %}
+    </aside>
+  </div>
+</section>
+{% endblock %}

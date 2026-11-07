@@ -1,0 +1,37 @@
+<?php
+return [
+    '@class' => 'Grav\\Common\\File\\CompiledMarkdownFile',
+    'filename' => '/Users/amer/Sites/godc/user/pages/06.blog/blog.md',
+    'modified' => 1793723851,
+    'size' => 699,
+    'data' => [
+        'header' => [
+            'title' => 'Blog',
+            'summary' => 'Evidence-based articles and practical tips on Lifestyle Medicine, nutrition and prevention.',
+            'metadata' => [
+                'description' => 'The GODC blog: evidence-based articles on Lifestyle Medicine, nutrition, heart health, physical activity and disease prevention from our clinical team.',
+                'keywords' => 'lifestyle medicine blog, nutrition articles, heart health tips, disease prevention'
+            ],
+            'hero' => [
+                'eyebrow' => 'Patient Education',
+                'title' => 'Blog & Newsroom',
+                'text' => 'Knowledge is an important part of better health. Explore reliable information, practical tips and evidence-based resources designed to help you make informed decisions about your health and lifestyle.'
+            ],
+            'content' => [
+                'items' => '@self.children'
+            ]
+        ],
+        'frontmatter' => 'title: Blog
+summary: Evidence-based articles and practical tips on Lifestyle Medicine, nutrition and prevention.
+metadata:
+  description: "The GODC blog: evidence-based articles on Lifestyle Medicine, nutrition, heart health, physical activity and disease prevention from our clinical team."
+  keywords: lifestyle medicine blog, nutrition articles, heart health tips, disease prevention
+hero:
+  eyebrow: Patient Education
+  title: Blog & Newsroom
+  text: Knowledge is an important part of better health. Explore reliable information, practical tips and evidence-based resources designed to help you make informed decisions about your health and lifestyle.
+content:
+  items: "@self.children"',
+        'markdown' => ''
+    ]
+];

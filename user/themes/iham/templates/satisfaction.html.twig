@@ -1,0 +1,29 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title, 'image': h.hero.image} %}
+
+<section class="section">
+  <div class="container container--narrow">
+    <div class="prose prose--lg">{{ h.intro|markdown }}</div>
+  </div>
+</section>
+
+<section class="section section--mint">
+  <div class="container">
+    <ul class="stat-cards">
+      {% for s in h.stats %}
+      <li class="stat-card"><span class="stat-value">{{ s.value }}</span><span class="stat-label">{{ s.label }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    {{ ui.head('Your voice matters', h.review.title, h.review.text) }}
+    <div class="form-card">{% include 'partials/form.html.twig' with {'form_name': h.review.form} %}</div>
+  </div>
+</section>
+{% endblock %}

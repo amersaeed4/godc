@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for p in page.collection({'items': {'@root.descendants': true}}) if p.routable and p.published and p.header.robots != 'noindex' and not (p.header.robots starts with 'noindex') and p.template != 'sitemap' and p.template != 'forms' and not p.header.sitemap.ignore %}
+  <url>
+    <loc>{{ p.home ? uri.rootUrl(true) ~ '/' : p.url(true, true) }}</loc>
+    <lastmod>{{ p.modified|date('Y-m-d') }}</lastmod>
+    <changefreq>{{ p.home ? 'weekly' : (p.template == 'post' ? 'yearly' : 'monthly') }}</changefreq>
+    <priority>{{ p.home ? '1.0' : (p.template == 'condition' or p.template == 'services' ? '0.9' : '0.7') }}</priority>
+  </url>
+{% endfor %}
+</urlset>

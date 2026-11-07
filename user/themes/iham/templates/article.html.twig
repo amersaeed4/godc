@@ -1,0 +1,89 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title ?: page.title, 'lead': h.hero.lead, 'image': h.hero.image} %}
+
+<section class="section">
+  <div class="container article-layout{{ h.sidebar ? '' : ' article-layout--wide' }}">
+    <div class="article-main">
+      {% if page.content|trim %}<div class="prose prose--lg">{{ page.content|raw }}</div>{% endif %}
+
+      {% set kids = page.children.visible %}
+      {% if kids|length %}
+      <div class="article-block">
+        <h2>{{ h.children_title ?: 'Explore this section' }}</h2>
+        <div class="card-grid card-grid--2">
+          {% for c in kids %}{% include 'partials/page-card.html.twig' with {'card': c} %}{% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if h.cards|length %}
+      <div class="article-block">
+        <h2>{{ h.cards_title }}</h2>
+        <div class="card-grid card-grid--2">
+          {% for c in h.cards %}
+          <div class="value-card"><span class="icon-badge">{{ ui.icon(c.icon) }}</span><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if h.links|length %}
+      <div class="article-block">
+        <h2>{{ h.links_title }}</h2>
+        <ul class="link-list">
+          {% for l in h.links %}<li><a href="{{ l.link|href }}">{{ l.title }} {{ ui.icon('arrow-right') }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if h.faqs|length %}
+      <div class="article-block">
+        <h2>{{ h.faqs_title ?: 'Frequently Asked Questions' }}</h2>
+        <div class="accordion">
+          {% for f in h.faqs %}
+          <details class="accordion__item"><summary>{{ f.question }}<span class="accordion__icon">{{ ui.icon('plus') }}</span></summary><div class="accordion__body prose">{{ f.answer|markdown }}</div></details>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    {% if h.sidebar %}
+    <aside class="article-side">
+      {% if h.doctor %}{% include 'partials/doctor-card.html.twig' with {'doc': h.doctor} %}{% endif %}
+      {% set kids_nav = page.children.visible %}
+      {% if kids_nav|length %}
+        {% set nav_title = page.menu %}{% set nav_items = kids_nav %}
+      {% elseif page.parent.parent.parent %}
+        {% set nav_title = page.parent.menu %}{% set nav_items = page.parent.children.visible %}
+      {% else %}
+        {% set nav_title = 'Further information' %}{% set nav_items = page.parent.children.visible %}
+      {% endif %}
+      {% if nav_items|length > 1 or kids_nav|length %}
+      <div class="side-card">
+        <h3>{{ nav_title }}</h3>
+        <ul class="side-links">
+          {% for s in nav_items %}<li><a href="{{ s.url }}"{{ s == page ? ' class="is-current" aria-current="page"' : '' }}>{{ s.menu }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      <div class="side-card side-card--contact">
+        <h3>Need help?</h3>
+        <p>Our friendly team is here to answer your questions.</p>
+        <ul class="contact-list">
+          <li>{{ ui.icon('phone') }}<a href="tel:{{ config.themes.iham.contact.phone|tel }}">{{ config.themes.iham.contact.phone }}</a></li>
+          <li>{{ ui.icon('mail') }}<a href="mailto:{{ config.themes.iham.contact.email }}">{{ config.themes.iham.contact.email }}</a></li>
+          <li>{{ ui.icon('map-pin') }}<span>{{ config.themes.iham.contact.address }}</span></li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="{{ '/book-a-consultation'|href }}">Book an Appointment</a>
+      </div>
+    </aside>
+    {% endif %}
+  </div>
+</section>
+
+{% if h.cta %}{% include 'partials/cta-band.html.twig' with {'cta': h.cta} %}{% endif %}
+{% endblock %}

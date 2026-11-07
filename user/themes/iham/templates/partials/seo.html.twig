@@ -1,0 +1,118 @@
+{# Title, meta, social cards, icons and structured data. Every value can be overridden per page (SEO & Sharing tab). #}
+{% set seo = config.themes.iham.seo %}
+{% set contact = config.themes.iham.contact %}
+{% set brand = config.themes.iham.brand %}
+{% set site_name = seo.site_name ?: site.title %}
+{% set sep = seo.title_separator ?: '|' %}
+{% set is_home = page.home %}
+{% set page_title = page.header.seo_title ?: (is_home ? (site_name ~ ' – ' ~ brand.tagline) : (page.title ~ ' ' ~ sep ~ ' ' ~ site_name)) %}
+{% set desc_raw = page.metadata.description.content ?? page.header.metadata.description ?? page.header.summary ?? seo.default_description %}
+{% set desc = (desc_raw ?: seo.default_description)|plain(165) %}
+{% set canon = page.header.canonical ?: (is_home ? uri.rootUrl(true) : page.url(true, true)) %}
+{% set robots = page.header.robots ?: 'index,follow' %}
+{% set og_name = page.header.og_image ?: page.header.card_image ?: page.header.hero.image ?: page.header.image %}
+{% set og_media = og_name ? page.media[og_name] : null %}
+{% if og_media %}
+  {% set og_url = og_media.url %}
+{% elseif seo.og_image is iterable and seo.og_image|length %}
+  {% set og_url = url('theme://images/uploads/' ~ (seo.og_image|first).name, true) %}
+{% else %}
+  {% set og_url = url('theme://images/logo-og.png', true) %}
+{% endif %}
+{% if og_url starts with '/' %}{% set og_url = uri.rootUrl(true) ~ og_url %}{% endif %}
+<title>{{ page_title|e('html') }}</title>
+<meta name="description" content="{{ desc|e('html_attr') }}">
+{% if page.header.metadata.keywords %}<meta name="keywords" content="{{ page.header.metadata.keywords|e('html_attr') }}">{% endif %}
+<meta name="robots" content="{{ robots }}{{ robots starts with 'noindex' ? '' : ',max-image-preview:large,max-snippet:-1' }}">
+<link rel="canonical" href="{{ canon }}">
+<meta name="author" content="{{ page.header.author ?: brand.name }}">
+{% if seo.google_site_verification %}<meta name="google-site-verification" content="{{ seo.google_site_verification }}">{% endif %}
+{% if seo.bing_site_verification %}<meta name="msvalidate.01" content="{{ seo.bing_site_verification }}">{% endif %}
+<meta name="theme-color" content="#152822">
+
+<link rel="icon" href="{{ url('theme://images/favicon.ico') }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url('theme://images/favicon-32.png') }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ url('theme://images/favicon-192.png') }}">
+<link rel="apple-touch-icon" href="{{ url('theme://images/apple-touch-icon.png') }}">
+
+<meta property="og:site_name" content="{{ site_name|e('html_attr') }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="{{ page.template == 'post' ? 'article' : 'website' }}">
+<meta property="og:title" content="{{ page_title|e('html_attr') }}">
+<meta property="og:description" content="{{ desc|e('html_attr') }}">
+<meta property="og:url" content="{{ canon }}">
+<meta property="og:image" content="{{ og_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title|e('html_attr') }}">
+<meta name="twitter:description" content="{{ desc|e('html_attr') }}">
+<meta name="twitter:image" content="{{ og_url }}">
+{% if seo.twitter_handle %}<meta name="twitter:site" content="{{ seo.twitter_handle }}">{% endif %}
+{% if page.template == 'post' %}
+<meta property="article:published_time" content="{{ page.date|date('c') }}">
+<meta property="article:modified_time" content="{{ page.modified|date('c') }}">
+{% endif %}
+{% if page.template == 'blog' and page.collection.params.pagination %}{% endif %}
+
+{# ---------- Structured data ---------- #}
+{% set base = uri.rootUrl(true) %}
+{% set same_as = [] %}
+{% for k, v in config.themes.iham.social %}{% if v %}{% set same_as = same_as|merge([v]) %}{% endif %}{% endfor %}
+{% set logo_abs = url('theme://images/logo-og.png', true) %}
+{% set org = {
+  '@type': seo.business_type ?: 'MedicalClinic',
+  '@id': base ~ '/#organization',
+  'name': brand.name,
+  'url': base ~ '/',
+  'logo': logo_abs,
+  'image': og_url,
+  'telephone': contact.phone,
+  'email': contact.email,
+  'description': seo.default_description|plain,
+  'address': {'@type': 'PostalAddress', 'streetAddress': contact.address, 'addressLocality': contact.locality, 'addressRegion': contact.region, 'addressCountry': contact.country},
+  'medicalSpecialty': ['Lifestyle Medicine', 'Clinical Nutrition'],
+  'sameAs': same_as
+} %}
+{% if seo.price_range %}{% set org = org|merge({'priceRange': seo.price_range}) %}{% endif %}
+{% set graph = [org, {'@type': 'WebSite', '@id': base ~ '/#website', 'url': base ~ '/', 'name': site_name, 'publisher': {'@id': base ~ '/#organization'}, 'inLanguage': 'en'}] %}
+
+{# breadcrumbs #}
+{% set crumbs = [] %}
+{% set cp = page %}
+{% for i in 1..6 %}{% if cp and cp.parent %}{% set crumbs = [{'name': cp.title, 'url': cp.url(true, true)}]|merge(crumbs) %}{% set cp = cp.parent %}{% endif %}{% endfor %}
+{% if not is_home %}
+  {% set crumbs = [{'name': 'Home', 'url': base ~ '/'}]|merge(crumbs) %}
+  {% set items = [] %}
+  {% for c in crumbs %}{% set items = items|merge([{'@type': 'ListItem', 'position': loop.index, 'name': c.name, 'item': c.url}]) %}{% endfor %}
+  {% set graph = graph|merge([{'@type': 'BreadcrumbList', 'itemListElement': items}]) %}
+{% endif %}
+
+{# page-level entities #}
+{% set wp_type = 'WebPage' %}
+{% if page.template == 'condition' %}{% set wp_type = 'MedicalWebPage' %}{% elseif page.template == 'contact' %}{% set wp_type = 'ContactPage' %}{% elseif page.template == 'about' %}{% set wp_type = 'AboutPage' %}{% endif %}
+{% set graph = graph|merge([{'@type': wp_type, '@id': canon ~ '#webpage', 'url': canon, 'name': page_title, 'description': desc, 'isPartOf': {'@id': base ~ '/#website'}, 'about': {'@id': base ~ '/#organization'}, 'inLanguage': 'en'}]) %}
+
+{% if page.template == 'doctor' %}
+  {% set p = page.header.profile %}
+  {% set graph = graph|merge([{'@type': 'Physician', '@id': base ~ '/#physician', 'name': p.name, 'jobTitle': p.role, 'description': desc, 'url': canon,
+     'image': page.media[p.image] ? page.media[p.image].url : '', 'medicalSpecialty': ['Anesthesia', 'Clinical Nutrition', 'Lifestyle Medicine'],
+     'worksFor': {'@id': base ~ '/#organization'}}]) %}
+{% endif %}
+
+{% if page.template == 'post' %}
+  {% set graph = graph|merge([{'@type': 'BlogPosting', 'headline': page.title, 'description': desc, 'datePublished': page.date|date('c'), 'dateModified': page.modified|date('c'),
+     'image': og_url, 'mainEntityOfPage': canon, 'author': {'@type': 'Organization', 'name': page.header.author ?: brand.name}, 'publisher': {'@id': base ~ '/#organization'}}]) %}
+{% endif %}
+
+{% set faq_items = page.header.faqs.items ?: (page.header.faqs is iterable and page.header.faqs[0] is defined ? page.header.faqs : []) %}
+{% if faq_items|length and faq_items[0].question is defined %}
+  {% set qa = [] %}
+  {% for f in faq_items %}{% set qa = qa|merge([{'@type': 'Question', 'name': f.question, 'acceptedAnswer': {'@type': 'Answer', 'text': f.answer|markdown|raw}}]) %}{% endfor %}
+  {% set graph = graph|merge([{'@type': 'FAQPage', 'mainEntity': qa}]) %}
+{% endif %}
+
+<script type="application/ld+json">{{ {'@context': 'https://schema.org', '@graph': graph}|json_encode(constant('JSON_UNESCAPED_SLASHES') b-or constant('JSON_UNESCAPED_UNICODE'))|raw }}</script>
+
+{% if seo.analytics_id %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ seo.analytics_id }}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ seo.analytics_id }}');</script>
+{% endif %}

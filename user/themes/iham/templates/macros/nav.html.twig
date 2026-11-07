@@ -1,0 +1,12 @@
+{# Recursive list of child pages for the dropdown menu #}
+{% macro tree(items, depth) %}
+<ul class="submenu__tree submenu__tree--d{{ depth }}">
+  {% for c in items %}
+    {% set kids = c.children.visible %}
+    <li{{ kids|length ? ' class="has-children"' : '' }}>
+      <a href="{{ c.url }}"{{ c.active ? ' aria-current="page"' : '' }}>{{ c.menu }}</a>
+      {% if kids|length %}{{ _self.tree(kids, depth + 1) }}{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endmacro %}

@@ -1,0 +1,412 @@
+title: Home
+extends@: default
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+            content:
+              unset@: true
+            header.media_order:
+              type: pagemedia
+              label: Page media
+              help: Upload images here, then pick them in the fields below.
+            hero_s:
+              type: section
+              title: Hero
+              underline: true
+            header.hero.eyebrow:
+              type: text
+              label: Eyebrow (small label above title)
+            header.hero.title:
+              type: text
+              label: Title
+            header.hero.text:
+              type: textarea
+              label: Intro text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.hero.image:
+              type: pagemediaselect
+              label: Image
+              preview_images: true
+            header.hero.text2:
+              type: textarea
+              label: Supporting text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.hero.primary_label:
+              type: text
+              label: Primary button label
+            header.hero.primary_link:
+              type: text
+              label: Primary button link
+            header.hero.secondary_label:
+              type: text
+              label: Secondary button label
+            header.hero.secondary_link:
+              type: text
+              label: Secondary button link
+            header.hero.video_url:
+              type: text
+              label: Background video URL (optional)
+              help: Direct .mp4 link. When set, it plays silently behind the hero.
+            dr_s:
+              type: section
+              title: Our doctors (in priority order)
+              underline: true
+              text: "The first doctor is featured most prominently. Name, photo, role and bio come from each doctor’s own page."
+            header.doctors.eyebrow:
+              type: text
+              label: Eyebrow
+            header.doctors.title:
+              type: text
+              label: Title
+            header.doctors.text:
+              type: textarea
+              label: Text
+              rows: 2
+            header.doctors.items:
+              type: list
+              label: Doctors
+              style: vertical
+              collapsed: true
+              btn_label: Add doctor
+              fields:
+                .page:
+                  type: text
+                  label: Doctor page route
+                  placeholder: "/our-doctors/dr-mohsin-gillani"
+            sx_s:
+              type: section
+              title: Doctor spotlight
+              underline: true
+              text: "Shows the specialisations and key facts from the chosen doctor’s page."
+            header.spotlight.page:
+              type: text
+              label: Doctor page route
+              placeholder: "/our-doctors/dr-mohsin-gillani"
+            header.spotlight.eyebrow:
+              type: text
+              label: Eyebrow
+            header.spotlight.title:
+              type: text
+              label: Title
+            header.spotlight.text:
+              type: textarea
+              label: Text
+              rows: 3
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.spotlight.button_label:
+              type: text
+              label: Button label
+            header.spotlight.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            ms_s:
+              type: section
+              title: Surgical services block
+              underline: true
+            header.surgical.group:
+              type: text
+              label: Menu group to show
+              help: "Pages whose “Menu group” matches this are listed."
+            header.surgical.eyebrow:
+              type: text
+              label: Eyebrow
+            header.surgical.title:
+              type: text
+              label: Title
+            header.surgical.text:
+              type: textarea
+              label: Text
+              rows: 2
+            hl_s:
+              type: section
+              title: Highlights strip
+              underline: true
+            header.highlights:
+              type: list
+              label: Highlights
+              style: vertical
+              collapsed: true
+              btn_label: Add highlight
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 2
+                .icon:
+                  type: select
+                  label: Icon
+                  options:
+                    stethoscope: Stethoscope
+                    heart: Heart
+                    apple: Apple
+                    activity: Activity
+                    moon: Moon
+                    brain: Brain
+                    users: Users
+                    shield: Shield
+                    leaf: Leaf
+                    clipboard: Clipboard
+                    chart: Chart
+                    book: Book
+                    smile: Smile
+                    award: Award
+                    building: Building
+                    globe: Globe
+                    pill: Pill
+                    droplet: Droplet
+                    bone: Bone
+                    scale: Scale
+                    flask: Flask
+                    baby: Baby
+                    file: File
+                    phone: Phone
+                    mail: Mail
+                    calendar: Calendar
+                    clock: Clock
+                    check: Check
+            st_s:
+              type: section
+              title: Patient satisfaction figures
+              underline: true
+            header.stats.title:
+              type: text
+              label: Title
+            header.stats.link_label:
+              type: text
+              label: Link label
+            header.stats.link:
+              type: text
+              label: Link
+            header.stats.items:
+              type: list
+              label: Figures
+              style: vertical
+              collapsed: true
+              btn_label: Add figure
+              fields:
+                .value:
+                  type: text
+                  label: Value
+                  placeholder: "91.4%"
+                .label:
+                  type: text
+                  label: Description
+            why_s:
+              type: section
+              title: Why choose us
+              underline: true
+            header.why.eyebrow:
+              type: text
+              label: Eyebrow (small label above title)
+            header.why.title:
+              type: text
+              label: Title
+            header.why.image:
+              type: pagemediaselect
+              label: Image
+              preview_images: true
+            header.why.text:
+              type: textarea
+              label: Text
+              rows: 8
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            con_s:
+              type: section
+              title: Consultations
+              underline: true
+            header.consultations.eyebrow:
+              type: text
+              label: Eyebrow
+            header.consultations.title:
+              type: text
+              label: Title
+            header.consultations.text:
+              type: textarea
+              label: Text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.consultations.button_label:
+              type: text
+              label: Button label
+            header.consultations.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            header.consultations.list_title:
+              type: text
+              label: List title
+            header.consultations.items:
+              type: textarea
+              label: List items
+              rows: 6
+              help: One item per line.
+            header.consultations.image:
+              type: pagemediaselect
+              label: Image
+              preview_images: true
+            org_s:
+              type: section
+              title: Organisations
+              underline: true
+            header.organisations.eyebrow:
+              type: text
+              label: Eyebrow
+            header.organisations.title:
+              type: text
+              label: Title
+            header.organisations.text:
+              type: textarea
+              label: Text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.organisations.button_label:
+              type: text
+              label: Button label
+            header.organisations.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            header.organisations.image:
+              type: pagemediaselect
+              label: Image
+              preview_images: true
+            edu_s:
+              type: section
+              title: Patient education (latest blog posts)
+              underline: true
+              text: The three newest articles from the Blog are shown automatically.
+            header.education.eyebrow:
+              type: text
+              label: Eyebrow
+            header.education.title:
+              type: text
+              label: Title
+            header.education.text:
+              type: textarea
+              label: Text
+              rows: 3
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.education.button_label:
+              type: text
+              label: Button label
+            header.education.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            cta_s:
+              type: section
+              title: Call to action
+              underline: true
+            header.cta.eyebrow:
+              type: text
+              label: Eyebrow
+            header.cta.title:
+              type: text
+              label: Title
+            header.cta.text:
+              type: textarea
+              label: Text
+              rows: 3
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.cta.button_label:
+              type: text
+              label: Button label
+            header.cta.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            bk_s:
+              type: section
+              title: Booking form
+              underline: true
+            header.booking.title:
+              type: text
+              label: Title
+            header.booking.text:
+              type: textarea
+              label: Text
+              rows: 2
+            header.booking.form:
+              type: select
+              label: Form
+              options:
+                booking-appointment: Appointment request (name, phone, email, type)
+                quick-booking: Quick booking (with date & time)
+                consultation: Full consultation form
+                corporate-enquiry: Corporate enquiry
+                global-enquiry: Global health enquiry
+                review: Patient feedback
+              help: "Form definitions live in the hidden \"Site Forms\" page (Pages → forms)."
+        seo:
+          type: tab
+          title: SEO & Sharing
+          fields:
+            seo_s:
+              type: section
+              title: Search engine optimisation
+              underline: true
+            header.seo_title:
+              type: text
+              label: SEO title
+              help: "Shown in browser tabs and search results. Leave blank to use \"Page title | Site name\". Aim for under 60 characters."
+            header.metadata.description:
+              type: textarea
+              label: Meta description
+              rows: 3
+              help: "Shown under the title in search results. Aim for 120–160 characters."
+            header.metadata.keywords:
+              type: text
+              label: Meta keywords
+              help: "Comma-separated. Optional – most search engines ignore these, but some directories use them."
+            header.robots:
+              type: select
+              label: Search engine visibility
+              options:
+                index,follow: Visible to search engines (default)
+                noindex,follow: Hide from search (noindex)
+                noindex,nofollow: Hide and do not follow links
+              default: index,follow
+            header.canonical:
+              type: text
+              label: Canonical URL
+              help: Only set this if the same content lives at another address.
+            social_s:
+              type: section
+              title: Social sharing & listings
+              underline: true
+            header.og_image:
+              type: pagemediaselect
+              label: Social sharing image
+              preview_images: true
+              help: "Recommended 1200 × 630 px. Falls back to the card image, then the site default."
+            header.summary:
+              type: textarea
+              label: Short summary
+              rows: 3
+              help: Shown on cards and listing pages that link to this page.
+            header.card_image:
+              type: pagemediaselect
+              label: Card image
+              preview_images: true
+              help: Image shown on cards that link to this page.
+            header.nav_group:
+              type: text
+              label: Menu group
+              help: "Optional. Groups pages under a heading inside the \"Our Services\" dropdown."
+        options:
+          fields:
+            publishing:
+              fields:
+                header.metadata:
+                  unset@: true

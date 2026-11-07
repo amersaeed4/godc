@@ -1,0 +1,61 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title, 'image': h.hero.image} %}
+
+<section class="section">
+  <div class="container split">
+    <div class="split__copy">
+      <p class="eyebrow">{{ h.who.eyebrow }}</p>
+      <h2>{{ h.who.title }}</h2>
+      <div class="prose">{{ h.who.text|markdown }}</div>
+    </div>
+    <div class="split__aside">
+      <div class="mv-card"><span class="icon-badge">{{ ui.icon('heart-pulse') }}</span><h3>{{ h.mission.title }}</h3><p>{{ h.mission.text }}</p></div>
+      <div class="mv-card"><span class="icon-badge">{{ ui.icon('globe') }}</span><h3>{{ h.vision.title }}</h3><p>{{ h.vision.text }}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--mint">
+  <div class="container">
+    {{ ui.head('What guides us', h.values.title) }}
+    <div class="card-grid card-grid--3">
+      {% for v in h.values.items %}
+      <div class="value-card"><span class="icon-badge">{{ ui.icon(v.icon) }}</span><h3>{{ v.title }}</h3><p>{{ v.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ ui.head('Leadership', h.team.title, h.team.text) }}
+    <div class="team-grid">
+      {% for m in h.team.members %}
+      <article class="team-card">
+        <div class="team-card__photo">{{ ui.img(page, m.image, m.name) }}</div>
+        <div class="team-card__body">
+          <p class="team-card__role">{{ m.role }}</p>
+          <h3>{{ m.name }}</h3>
+          <p class="team-card__cred">{{ m.credentials }}</p>
+          {% if m.affiliations %}<p class="team-card__aff">{{ m.affiliations }}</p>{% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container container--narrow">
+    {{ ui.head('Why GODC', h.reasons.title, h.reasons.text) }}
+    <ul class="reason-grid">
+      {% for r in h.reasons.items|lines %}<li><span class="reason-num">{{ loop.index }}</span><span>{{ r }}</span></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include 'partials/cta-band.html.twig' with {'cta': h.cta} %}
+{% endblock %}

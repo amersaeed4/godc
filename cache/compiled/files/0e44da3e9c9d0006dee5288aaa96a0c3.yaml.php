@@ -1,0 +1,79 @@
+<?php
+return [
+    '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
+    'filename' => '/Users/amer/Sites/godc/user/plugins/admin2/blueprints.yaml',
+    'modified' => 1793718001,
+    'size' => 1670,
+    'data' => [
+        'name' => 'Admin2',
+        'slug' => 'admin2',
+        'type' => 'plugin',
+        'version' => '2.2.7',
+        'description' => 'Modern administration panel for Grav CMS. A redesigned admin experience.',
+        'icon' => 'black-tie',
+        'author' => [
+            'name' => 'Team Grav',
+            'email' => 'devs@getgrav.org',
+            'url' => 'https://getgrav.org'
+        ],
+        'homepage' => 'https://github.com/getgrav/grav-plugin-admin2',
+        'keywords' => 'admin, panel, dashboard, management',
+        'bugs' => 'https://github.com/getgrav/grav-plugin-admin2/issues',
+        'docs' => 'https://github.com/getgrav/grav-plugin-admin2/blob/main/README.md',
+        'license' => 'MIT',
+        'compatibility' => [
+            'grav' => [
+                0 => '2.0'
+            ]
+        ],
+        'dependencies' => [
+            0 => [
+                'name' => 'grav',
+                'version' => '>=2.2.18'
+            ],
+            1 => [
+                'name' => 'api',
+                'version' => '>=1.1.10'
+            ]
+        ],
+        'form' => [
+            'validation' => 'loose',
+            'fields' => [
+                'enabled' => [
+                    'type' => 'toggle',
+                    'label' => 'Plugin Status',
+                    'highlight' => 1,
+                    'default' => 1,
+                    'options' => [
+                        1 => 'Enabled',
+                        0 => 'Disabled'
+                    ],
+                    'validate' => [
+                        'type' => 'bool'
+                    ]
+                ],
+                'route' => [
+                    'type' => 'text',
+                    'label' => 'Admin Route',
+                    'description' => 'The route to access Admin2 (relative to site root).',
+                    'default' => '/admin2',
+                    'placeholder' => '/admin2'
+                ],
+                'pages.only_editable' => [
+                    'type' => 'toggle',
+                    'label' => 'Only List Editable Pages',
+                    'help' => 'List only the pages each user can edit, plus the folders that lead to them, on the Pages screen, in page search and in the dashboard\'s recent pages. Pages a user can view but not edit are left out, so editors who look after a few pages of a large site get a short list. This is a convenience, not access control: what each user may read and change is still decided by their permissions and each page\'s own permissions. Needs API 1.1.10 or later.',
+                    'highlight' => 0,
+                    'default' => 0,
+                    'options' => [
+                        1 => 'Enabled',
+                        0 => 'Disabled'
+                    ],
+                    'validate' => [
+                        'type' => 'bool'
+                    ]
+                ]
+            ]
+        ]
+    ]
+];

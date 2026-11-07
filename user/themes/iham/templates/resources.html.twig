@@ -1,0 +1,75 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title, 'lead': h.hero.text, 'image': h.hero.image} %}
+
+<nav class="pillar-nav" aria-label="On this page">
+  <div class="container"><ul>
+    {% for l in h.hero.links %}<li><a href="#{{ l.target }}">{{ l.label }}</a></li>{% endfor %}
+  </ul></div>
+</nav>
+
+<section class="section" id="prep">
+  <div class="container card-grid card-grid--2 card-grid--stretch">
+    <div class="info-card">
+      <p class="eyebrow">{{ h.prep.eyebrow }}</p>
+      <h2>{{ h.prep.title }}</h2>
+      <div class="prose">{{ h.prep.text|markdown }}</div>
+      <p class="list-title">{{ h.prep.list_title }}</p>
+      {{ ui.checklist(h.prep.items|lines) }}
+    </div>
+    <div class="info-card" id="expect">
+      <p class="eyebrow">{{ h.expect.eyebrow }}</p>
+      <h2>{{ h.expect.title }}</h2>
+      <div class="prose">{{ h.expect.text|markdown }}</div>
+      <p class="list-title">{{ h.expect.list_title }}</p>
+      {{ ui.checklist(h.expect.items|lines) }}
+    </div>
+  </div>
+</section>
+
+<section class="section section--mint" id="followup">
+  <div class="container container--narrow center">
+    <span class="icon-badge icon-badge--lg">{{ ui.icon('calendar') }}</span>
+    <p class="eyebrow">{{ h.followup.eyebrow }}</p>
+    <h2>{{ h.followup.title }}</h2>
+    <div class="prose">{{ h.followup.text|markdown }}</div>
+  </div>
+</section>
+
+<section class="section" id="faqs">
+  <div class="container container--narrow">
+    {{ ui.head('Answers', h.faqs.title) }}
+    <div class="accordion">
+      {% for f in h.faqs.items %}
+      <details class="accordion__item"{{ loop.first ? ' open' : '' }}>
+        <summary>{{ f.question }}<span class="accordion__icon">{{ ui.icon('plus') }}</span></summary>
+        <div class="accordion__body prose">{{ f.answer|markdown }}</div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container split">
+    <div class="split__copy">
+      <p class="eyebrow">{{ h.education.eyebrow }}</p>
+      <h2>{{ h.education.title }}</h2>
+      <div class="prose">{{ h.education.text|markdown }}</div>
+      <p><a class="btn btn-primary" href="{{ h.education.button_link|href }}">{{ h.education.button_label }} {{ ui.icon('arrow-right') }}</a></p>
+    </div>
+    <div class="split__media"><div class="media-frame">{{ ui.img(page, h.education.image, h.education.title) }}</div></div>
+  </div>
+</section>
+
+{% include 'partials/cta-band.html.twig' with {'cta': h.cta|merge({'button_label': 'Book Your Consultation', 'button_link': '#book'})} %}
+
+<section class="section section--mint" id="book">
+  <div class="container container--narrow">
+    {{ ui.head('Book online', h.booking.title) }}
+    <div class="form-card">{% include 'partials/form.html.twig' with {'form_name': h.booking.form} %}</div>
+  </div>
+</section>
+{% endblock %}

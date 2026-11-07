@@ -1,0 +1,247 @@
+title: Services overview
+extends@: default
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+            content:
+              unset@: true
+            header.media_order:
+              type: pagemedia
+              label: Page media
+              help: Upload images here, then pick them in the fields below.
+            hero_s:
+              type: section
+              title: Hero
+              underline: true
+            header.hero.eyebrow:
+              type: text
+              label: Eyebrow
+            header.hero.title:
+              type: text
+              label: Title
+            header.hero.text:
+              type: textarea
+              label: Intro
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.hero.button_label:
+              type: text
+              label: Button label
+            header.hero.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            fg_s:
+              type: section
+              title: Featured group (top of page)
+              underline: true
+            header.featured.group:
+              type: text
+              label: Menu group to feature
+              help: "Pages whose “Menu group” matches are shown as large cards above the tabs."
+            header.featured.eyebrow:
+              type: text
+              label: Eyebrow
+            header.featured.title:
+              type: text
+              label: Title
+            header.featured.text:
+              type: textarea
+              label: Text
+              rows: 2
+            cat_s:
+              type: section
+              title: Service categories
+              underline: true
+              text: "Each category becomes a tab. Add the individual services below and set their \"Category\" to the exact category title."
+            header.categories:
+              type: list
+              label: Categories
+              style: vertical
+              collapsed: true
+              btn_label: Add category
+              fields:
+                .title:
+                  type: text
+                  label: Title (tab label)
+                .text:
+                  type: textarea
+                  label: Short description
+                  rows: 3
+                .link:
+                  type: text
+                  label: Page link
+                  placeholder: "/our-services/renal-disorders"
+                .link_label:
+                  type: text
+                  label: Link label
+            svc_s:
+              type: section
+              title: Individual services
+              underline: true
+            header.service_items:
+              type: list
+              label: Services
+              style: vertical
+              collapsed: true
+              btn_label: Add service
+              fields:
+                .category:
+                  type: text
+                  label: Category (exact title)
+                .title:
+                  type: text
+                  label: Service name
+                .text:
+                  type: textarea
+                  label: Description
+                  rows: 4
+                .why:
+                  type: textarea
+                  label: Why choose GODC
+                  rows: 3
+            more_s:
+              type: section
+              title: More ways GODC can help
+              underline: true
+            header.more.title:
+              type: text
+              label: Title
+            header.more.items:
+              type: list
+              label: Cards
+              style: vertical
+              collapsed: true
+              btn_label: Add card
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 3
+                .link:
+                  type: text
+                  label: Link
+                .icon:
+                  type: select
+                  label: Icon
+                  options:
+                    stethoscope: Stethoscope
+                    heart: Heart
+                    apple: Apple
+                    activity: Activity
+                    moon: Moon
+                    brain: Brain
+                    users: Users
+                    shield: Shield
+                    leaf: Leaf
+                    clipboard: Clipboard
+                    chart: Chart
+                    book: Book
+                    smile: Smile
+                    award: Award
+                    building: Building
+                    globe: Globe
+                    pill: Pill
+                    droplet: Droplet
+                    bone: Bone
+                    scale: Scale
+                    flask: Flask
+                    baby: Baby
+                    file: File
+                    phone: Phone
+                    mail: Mail
+                    calendar: Calendar
+                    clock: Clock
+                    check: Check
+            cta_s:
+              type: section
+              title: Call to action
+              underline: true
+            header.cta.eyebrow:
+              type: text
+              label: Eyebrow
+            header.cta.title:
+              type: text
+              label: Title
+            header.cta.text:
+              type: textarea
+              label: Text
+              rows: 3
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.cta.button_label:
+              type: text
+              label: Button label
+            header.cta.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+        seo:
+          type: tab
+          title: SEO & Sharing
+          fields:
+            seo_s:
+              type: section
+              title: Search engine optimisation
+              underline: true
+            header.seo_title:
+              type: text
+              label: SEO title
+              help: "Shown in browser tabs and search results. Leave blank to use \"Page title | Site name\". Aim for under 60 characters."
+            header.metadata.description:
+              type: textarea
+              label: Meta description
+              rows: 3
+              help: "Shown under the title in search results. Aim for 120–160 characters."
+            header.metadata.keywords:
+              type: text
+              label: Meta keywords
+              help: "Comma-separated. Optional – most search engines ignore these, but some directories use them."
+            header.robots:
+              type: select
+              label: Search engine visibility
+              options:
+                index,follow: Visible to search engines (default)
+                noindex,follow: Hide from search (noindex)
+                noindex,nofollow: Hide and do not follow links
+              default: index,follow
+            header.canonical:
+              type: text
+              label: Canonical URL
+              help: Only set this if the same content lives at another address.
+            social_s:
+              type: section
+              title: Social sharing & listings
+              underline: true
+            header.og_image:
+              type: pagemediaselect
+              label: Social sharing image
+              preview_images: true
+              help: "Recommended 1200 × 630 px. Falls back to the card image, then the site default."
+            header.summary:
+              type: textarea
+              label: Short summary
+              rows: 3
+              help: Shown on cards and listing pages that link to this page.
+            header.card_image:
+              type: pagemediaselect
+              label: Card image
+              preview_images: true
+              help: Image shown on cards that link to this page.
+            header.nav_group:
+              type: text
+              label: Menu group
+              help: "Optional. Groups pages under a heading inside the \"Our Services\" dropdown."
+        options:
+          fields:
+            publishing:
+              fields:
+                header.metadata:
+                  unset@: true

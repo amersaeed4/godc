@@ -1,0 +1,172 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% set pr = h.profile %}
+<section class="page-hero page-hero--profile">
+  <div class="container page-hero__inner">
+    <div class="page-hero__copy">
+      {% include 'partials/breadcrumbs.html.twig' %}
+      <p class="eyebrow eyebrow--light">{{ pr.tagline }}</p>
+      <h1>{{ pr.name }}</h1>
+      <p class="page-hero__role">{{ pr.role }}</p>
+      {% if pr.bio %}<div class="page-hero__lead"><p>{{ pr.bio }}</p></div>{% endif %}
+      <div class="btn-row">
+        <a class="btn btn-accent" href="{{ h.cta.button_link|href }}">{{ h.cta.button_label }} {{ ui.icon('arrow-right') }}</a>
+        {% if h.specialisations.items|length %}<a class="btn btn-ghost" href="#specialisations">Specialisations</a>{% endif %}
+      </div>
+    </div>
+    <div class="page-hero__portrait">{{ ui.img(page, pr.image, pr.name, '', true) }}</div>
+  </div>
+</section>
+
+{% if h.stats|length %}
+<section class="proof-strip">
+  <div class="container">
+    <ul class="proof-strip__grid">
+      {% for s in h.stats %}<li><span class="proof-strip__value">{{ s.value }}</span><span class="proof-strip__label">{{ s.label }}</span></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+{% if h.quote.text %}
+<section class="section section--cream">
+  <div class="container container--narrow">
+    <blockquote class="pull-quote">
+      <span class="pull-quote__mark">{{ ui.icon('quote') }}</span>
+      <p>{{ h.quote.text }}</p>
+      {% if h.quote.author %}<footer>— {{ h.quote.author }}</footer>{% endif %}
+    </blockquote>
+  </div>
+</section>
+{% endif %}
+
+{% if h.specialisations.items|length %}
+<section class="section" id="specialisations">
+  <div class="container">
+    {{ ui.head('Services', h.specialisations.title, h.specialisations.text) }}
+    <div class="card-grid card-grid--3">
+      {% for it in h.specialisations.items %}
+      <a class="page-card" href="{{ it.link|href }}">
+        <span class="page-card__media">{{ ui.img(page, it.image, it.title) }}</span>
+        <span class="page-card__body">
+          <span class="page-card__title">{{ it.title }}</span>
+          <span class="page-card__text">{{ it.text }}</span>
+          <span class="page-card__more">See more {{ ui.icon('arrow-right') }}</span>
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if h.why.items %}
+<section class="section section--mint">
+  <div class="container container--narrow">
+    {{ ui.head('Why choose', h.why.title) }}
+    {{ ui.checklist(h.why.items|lines, 'checklist--cards') }}
+  </div>
+</section>
+{% endif %}
+
+{% if h.education.items|length %}
+<section class="section">
+  <div class="container">
+    {{ ui.head('Credentials', h.education.title) }}
+    <div class="edu-grid">
+      {% for e in h.education.items %}
+      <div class="edu-card">
+        <div class="edu-card__logo">{{ ui.img(page, e.logo, e.institution) }}</div>
+        <h3>{{ e.degree }}</h3>
+        <p>{{ e.institution }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if h.intro.text %}
+<section class="section{{ h.education.items|length ? ' section--mint' : '' }}">
+  <div class="container split split--top">
+    <div class="split__copy">
+      <p class="eyebrow">About</p>
+      <h2>{{ h.intro.title }}</h2>
+      <div class="prose">{{ h.intro.text|markdown }}</div>
+    </div>
+    <div class="split__aside">
+      {% for pt in h.intro.points %}
+      <div class="point-card"><span class="icon-badge">{{ ui.icon('check') }}</span><div><h3>{{ pt.title }}</h3><p>{{ pt.text }}</p></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if h.services.items %}
+<section class="section">
+  <div class="container split split--top">
+    <div class="split__copy">
+      <p class="eyebrow">Areas of care</p>
+      <h2>{{ h.services.title }}</h2>
+      <div class="prose">{{ h.services.text|markdown }}</div>
+    </div>
+    <div class="split__aside">{{ ui.checklist(h.services.items|lines, 'checklist--cards') }}</div>
+  </div>
+</section>
+{% endif %}
+
+{% if h.commitment.text %}
+<section class="section section--cream">
+  <div class="container container--narrow center">
+    <span class="icon-badge icon-badge--lg">{{ ui.icon('heart-pulse') }}</span>
+    <h2>{{ h.commitment.title }}</h2>
+    <div class="prose">{{ h.commitment.text|markdown }}</div>
+  </div>
+</section>
+{% endif %}
+
+{% if h.experience.rows|length %}
+<section class="section section--cream">
+  <div class="container">
+    {{ ui.head('Career', h.experience.title, h.experience.text) }}
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th scope="col">Year</th><th scope="col">Department</th><th scope="col">Position</th><th scope="col">Hospital</th></tr></thead>
+        <tbody>
+          {% for r in h.experience.rows %}
+          <tr><td data-label="Year">{{ r.years }}</td><td data-label="Department">{{ r.department }}</td><td data-label="Position">{{ r.position }}</td><td data-label="Hospital">{{ r.hospital }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if h.clinic.address %}
+<section class="section">
+  <div class="container split">
+    <div class="split__media"><div class="media-frame">{{ ui.img(page, h.clinic.image, h.clinic.title) }}</div></div>
+    <div class="split__copy">
+      <p class="eyebrow">{{ h.clinic.eyebrow ?: 'Our clinic' }}</p>
+      <h2>{{ h.clinic.title }}</h2>
+      <ul class="contact-list contact-list--dark">
+        <li>{{ ui.icon('map-pin') }}<span>{{ h.clinic.address }}</span></li>
+        {% if h.clinic.hours %}<li>{{ ui.icon('clock') }}<span>{{ h.clinic.hours }}</span></li>{% endif %}
+        {% if h.clinic.phone %}<li>{{ ui.icon('phone') }}<a href="tel:{{ h.clinic.phone|tel }}">{{ h.clinic.phone }}</a></li>{% endif %}
+        {% if h.clinic.email %}<li>{{ ui.icon('mail') }}<a href="mailto:{{ h.clinic.email }}">{{ h.clinic.email }}</a></li>{% endif %}
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="{{ '/book-a-consultation'|href }}">Book an Appointment</a>
+        {% if h.clinic.map_link %}<a class="btn btn-outline" href="{{ h.clinic.map_link }}" target="_blank" rel="noopener">Get directions {{ ui.icon('external') }}</a>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include 'partials/cta-band.html.twig' with {'cta': h.cta} %}
+{% endblock %}

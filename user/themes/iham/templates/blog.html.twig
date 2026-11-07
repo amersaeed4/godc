@@ -1,0 +1,13 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title ?: page.title, 'lead': h.hero.text} %}
+<section class="section">
+  <div class="container">
+    <div class="card-grid card-grid--3">
+      {% for post in page.collection.order('date', 'desc') %}{% include 'partials/post-card.html.twig' %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

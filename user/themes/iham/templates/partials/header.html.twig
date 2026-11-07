@@ -1,0 +1,85 @@
+{% import 'macros/ui.html.twig' as ui %}
+{% import 'macros/nav.html.twig' as nav %}
+{% set theme = config.themes.iham %}
+{% set contact = theme.contact %}
+{% set hours = theme.hours|first %}
+<header class="site-header" id="top">
+  {% if theme.header.show_topbar %}
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        {% if theme.locations|length %}
+          {% set l0 = theme.locations|first %}
+          <a class="topbar__item topbar__addr" href="{{ l0.map_link }}" target="_blank" rel="noopener">{{ ui.icon('map-pin') }} {{ l0.address }}</a>
+        {% else %}
+          {% if hours %}<span class="topbar__item topbar__hours">{{ ui.icon('clock') }} {{ hours.days }}: {{ hours.time }}</span>{% endif %}
+          {% if contact.address %}<a class="topbar__item topbar__addr" href="{{ contact.map_link }}" target="_blank" rel="noopener">{{ ui.icon('map-pin') }} {{ contact.address }}</a>{% endif %}
+        {% endif %}
+      </div>
+      <div class="topbar__right">
+        {% if theme.header.topbar_label %}<span class="topbar__label">{{ theme.header.topbar_label }}</span>{% endif %}
+        {% if theme.locations|length %}
+          {% for loc in theme.locations %}<a class="topbar__item topbar__phone" href="tel:{{ loc.phone|tel }}">{{ ui.icon('phone') }} {{ loc.phone }}{% if loc.short %}<small>{{ loc.short }}</small>{% endif %}</a>{% endfor %}
+        {% else %}
+          <a class="topbar__item topbar__phone" href="tel:{{ contact.phone|tel }}">{{ ui.icon('phone') }} {{ contact.phone }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="navbar">
+    <div class="container navbar__inner">
+      <a class="brand" href="{{ base_url_relative ?: '/' }}" aria-label="{{ theme.brand.name }} – home">
+        <img src="{{ url('theme://images/logo-header.png') }}" alt="{{ theme.brand.name }}" width="603" height="494">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        {{ ui.icon('menu', 'nav-toggle__open') }}{{ ui.icon('x', 'nav-toggle__close') }}
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+        <ul class="menu">
+          <li class="menu__item{{ page.home ? ' is-active' : '' }}"><a class="menu__link" href="{{ base_url_relative ?: '/' }}"{{ page.home ? ' aria-current="page"' : '' }}>Home</a></li>
+
+          {% for p in pages.children.visible if not p.home %}
+            {% set kids = p.children.visible %}
+            {% set is_active = p.active or p.activeChild %}
+            {% set group_count = 0 %}
+            {% set seen_groups = [] %}
+            {% for c in kids %}{% set g = c.header.nav_group ?: '' %}{% if g not in seen_groups %}{% set seen_groups = seen_groups|merge([g]) %}{% endif %}{% endfor %}
+            <li class="menu__item{{ kids|length ? ' has-sub' : '' }}{{ seen_groups|length > 1 ? ' has-mega' : '' }}{{ is_active ? ' is-active' : '' }}">
+              <a class="menu__link" href="{{ p.url }}"{{ p.active ? ' aria-current="page"' : '' }}>{{ p.menu }}</a>
+              {% if kids|length %}
+                <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Show {{ p.menu }} pages">{{ ui.icon('chevron-down') }}</button>
+                {% set group_names = [] %}
+                {% for c in kids %}{% set g = c.header.nav_group ?: '' %}{% if g not in group_names %}{% set group_names = group_names|merge([g]) %}{% endif %}{% endfor %}
+                <div class="submenu{{ group_names|length > 1 ? ' submenu--mega' : '' }}">
+                  <div class="submenu__inner">
+                  {% for g in group_names %}
+                    {% set wide = false %}
+                    {% for c in kids if (c.header.nav_group ?: '') == g and c.children.visible|length %}{% set wide = true %}{% endfor %}
+                    <div class="submenu__col{{ wide ? ' submenu__col--wide' : '' }}">
+                      {% if g %}<p class="submenu__title">{{ g }}</p>{% endif %}
+                      <ul class="{{ wide ? 'submenu__list--cols' : '' }}">
+                      {% for c in kids if (c.header.nav_group ?: '') == g %}
+                        <li{{ c.children.visible|length ? ' class="has-children"' : '' }}>
+                          <a href="{{ c.url }}"{{ c.active ? ' aria-current="page"' : '' }}>{{ c.menu }}</a>
+                          {% if c.children.visible|length %}{{ nav.tree(c.children.visible, 1) }}{% endif %}
+                        </li>
+                      {% endfor %}
+                      </ul>
+                    </div>
+                  {% endfor %}
+                  </div>
+                  {% if group_names|length > 1 %}<a class="submenu__all" href="{{ p.url }}">View all {{ p.menu|lower }} {{ ui.icon('arrow-right') }}</a>{% endif %}
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        <a class="btn btn-accent nav-cta" href="{{ (theme.header.cta_link ?: '/book-a-consultation')|href }}">{{ ui.icon('calendar') }} {{ theme.header.cta_label ?: 'Book an Appointment' }}</a>
+      </nav>
+    </div>
+  </div>
+</header>

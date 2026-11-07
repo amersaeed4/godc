@@ -1,0 +1,17 @@
+{# Large doctor profile card. Params: dp (doctor page), featured (bool) #}
+{% import 'macros/ui.html.twig' as ui %}
+{% set pr = dp.header.profile %}
+<article class="doctor-feature{{ featured ? ' doctor-feature--lead' : '' }}">
+  <a class="doctor-feature__photo" href="{{ dp.url }}" tabindex="-1" aria-hidden="true">{{ ui.img(dp, pr.image, pr.name, '', featured) }}</a>
+  <div class="doctor-feature__body">
+    <p class="doctor-feature__tag">{{ pr.tagline }}</p>
+    <h3><a href="{{ dp.url }}">{{ pr.name }}</a></h3>
+    <p class="doctor-feature__role">{{ pr.role }}</p>
+    {% if pr.bio %}<p class="doctor-feature__bio">{{ pr.bio }}</p>{% endif %}
+    {% if pr.chips %}<ul class="chip-list">{% for c in pr.chips|lines %}<li>{{ c }}</li>{% endfor %}</ul>{% endif %}
+    <div class="btn-row">
+      <a class="btn btn-primary" href="{{ dp.url }}">View profile {{ ui.icon('arrow-right') }}</a>
+      <a class="btn btn-outline" href="{{ '/book-a-consultation'|href }}">Book an appointment</a>
+    </div>
+  </div>
+</article>

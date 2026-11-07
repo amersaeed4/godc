@@ -1,0 +1,79 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% set hero = h.hero %}
+<section class="page-hero page-hero--image">
+  <div class="container page-hero__inner">
+    <div class="page-hero__copy">
+      {% include 'partials/breadcrumbs.html.twig' %}
+      <p class="eyebrow eyebrow--light">{{ hero.eyebrow }}</p>
+      <h1>{{ hero.title }}</h1>
+      <p class="page-hero__sub">{{ hero.subtitle }}</p>
+      <div class="page-hero__lead">{{ hero.text|markdown }}</div>
+      {% if hero.button_label %}<div class="btn-row"><a class="btn btn-accent" href="{{ hero.button_link|href }}">{{ hero.button_label }} {{ ui.icon('arrow-right') }}</a></div>{% endif %}
+    </div>
+    <div class="page-hero__media">{{ ui.img(page, hero.image, hero.title, '', true) }}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ ui.head('What we offer', h.services.title) }}
+    {% for s in h.services.items %}
+      {% if s.image %}
+      <div class="split service-row{{ loop.index is even ? ' split--reverse' : '' }}">
+        <div class="split__copy">
+          <h3>{{ s.title }}</h3>
+          <div class="prose">{{ s.text|markdown }}</div>
+          {% if s.list %}<p class="list-title">{{ s.list_title }}</p>{{ ui.checklist(s.list|lines, 'checklist--cols') }}{% endif %}
+        </div>
+        <div class="split__media"><div class="media-frame">{{ ui.img(page, s.image, s.title) }}</div></div>
+      </div>
+      {% endif %}
+    {% endfor %}
+    <div class="card-grid card-grid--3 mt">
+      {% for s in h.services.items if not s.image %}
+      <div class="value-card"><span class="icon-badge">{{ ui.icon(loop.index == 1 ? 'award' : (loop.index == 2 ? 'clipboard' : 'calendar')) }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--mint">
+  <div class="container split split--top">
+    <div class="split__copy">
+      <p class="eyebrow">{{ h.why.eyebrow }}</p>
+      <h2>{{ h.why.title }}</h2>
+      <p class="lead">{{ h.why.intro }}</p>
+      {{ ui.checklist(h.why.items|lines) }}
+    </div>
+    <div class="split__copy">
+      <p class="eyebrow">{{ h.approach.eyebrow }}</p>
+      <h2>{{ h.approach.title }}</h2>
+      <p class="lead">{{ h.approach.intro }}</p>
+      <ol class="steps">{% for it in h.approach.items|lines %}<li>{{ it }}</li>{% endfor %}</ol>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="split__copy">
+      <p class="eyebrow">{{ h.clients.eyebrow }}</p>
+      <h2>{{ h.clients.title }}</h2>
+      <ul class="pill-list">{% for it in h.clients.items|lines %}<li>{{ it }}</li>{% endfor %}</ul>
+    </div>
+    <div class="split__media"><div class="media-frame">{{ ui.img(page, h.clients.image, h.clients.title) }}</div></div>
+  </div>
+</section>
+
+{% include 'partials/cta-band.html.twig' with {'cta': h.cta} %}
+
+<section class="section section--mint" id="enquiry">
+  <div class="container container--narrow">
+    {{ ui.head('Enquire', h.enquiry.title) }}
+    <div class="form-card">{% include 'partials/form.html.twig' with {'form_name': h.enquiry.form} %}</div>
+  </div>
+</section>
+{% endblock %}

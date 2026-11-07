@@ -1,0 +1,132 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': 'Our Services', 'title': h.hero.title, 'lead': h.hero.intro, 'hero_form': 'quick-booking', 'hero_form_title': 'Book an Appointment'} %}
+
+{% if h.conditions|length %}
+<nav class="pillar-nav" aria-label="On this page">
+  <div class="container"><ul>
+    {% for c in h.conditions %}<li><a href="#c-{{ loop.index }}">{{ c.title }}</a></li>{% endfor %}
+  </ul></div>
+</nav>
+{% endif %}
+
+{% if h.signs %}
+<section class="section">
+  <div class="container split">
+    <div class="split__copy">
+      <p class="eyebrow">Know the signs</p>
+      <h2>{{ h.signs.title }}</h2>
+      <div class="prose">{{ h.signs.text|markdown }}</div>
+    </div>
+    <div class="split__media">
+      <div class="media-stack media-stack--{{ h.signs.images|length }}">
+        {% for im in h.signs.images %}<div class="media-frame">{{ ui.img(page, im.image, h.signs.title) }}</div>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if h.cta %}
+<section class="banner">
+  <div class="container banner__inner">
+    <div>
+      <h2>{{ h.cta.title }}</h2>
+      <p>{{ h.cta.text }}</p>
+    </div>
+    <a class="btn btn-accent btn-lg" href="{{ '/book-a-consultation'|href }}">{{ h.cta.button_label ?: 'Book an Appointment' }} {{ ui.icon('arrow-right') }}</a>
+  </div>
+</section>
+{% endif %}
+
+{% if h.causes %}
+<section class="section section--mint">
+  <div class="container">
+    {{ ui.head('Understanding the condition', h.causes.title, h.causes.intro) }}
+    <div class="card-grid card-grid--3">
+      {% for c in h.causes.items %}
+      <div class="value-card"><span class="icon-badge">{{ ui.icon('clipboard') }}</span><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% for c in h.conditions %}
+<section class="section condition{{ loop.index is even ? ' section--cream' : '' }}" id="c-{{ loop.index }}">
+  <div class="container split{{ loop.index is even ? ' split--reverse' : '' }}">
+    <div class="split__copy">
+      <p class="eyebrow">Our care</p>
+      <h2>{{ c.title }}</h2>
+      <div class="prose">{{ c.text|markdown }}</div>
+      <p><a class="link-arrow" href="{{ '/book-a-consultation'|href }}">Book a consultation {{ ui.icon('arrow-right') }}</a></p>
+    </div>
+    <div class="split__media"><div class="media-frame">{{ ui.img(page, c.image, c.title) }}</div></div>
+  </div>
+</section>
+{% endfor %}
+
+{% if h.risks %}
+<section class="section section--mint">
+  <div class="container">
+    {{ ui.head('Know your risk', h.risks.title, h.risks.intro) }}
+    <div class="card-grid card-grid--2">
+      {% for r in h.risks.items %}
+      <article class="risk-card">
+        <h3>{{ r.title }}</h3>
+        <p>{{ r.text }}</p>
+        {% if r.why %}<div class="why-box"><strong>Why GODC?</strong><p>{{ r.why }}</p></div>{% endif %}
+        <a class="btn btn-outline btn-sm" href="{{ '/book-a-consultation'|href }}">Book a Consultation</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if h.when %}
+<section class="section">
+  <div class="container container--narrow center">
+    <span class="icon-badge icon-badge--lg">{{ ui.icon('stethoscope') }}</span>
+    <h2>{{ h.when.title }}</h2>
+    <div class="prose">{{ h.when.text|markdown }}</div>
+    <p><a class="btn btn-primary btn-lg" href="{{ '/book-a-consultation'|href }}">{{ h.when.button_label ?: 'Book an Appointment' }} {{ ui.icon('arrow-right') }}</a></p>
+  </div>
+</section>
+{% endif %}
+
+{% if h.diagnosis %}
+<section class="section section--cream">
+  <div class="container">
+    {{ ui.head('Diagnosis & care', h.diagnosis.title, h.diagnosis.intro) }}
+    <div class="card-grid card-grid--3">
+      {% for col in h.diagnosis.columns %}
+      <div class="dx-card">
+        <h3>{{ col.title }}</h3>
+        {% if col.intro %}<p>{{ col.intro }}</p>{% endif %}
+        {{ ui.checklist(col.items|lines) }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% set siblings = page.parent.children.published.nth(0) %}
+<section class="section">
+  <div class="container">
+    {{ ui.head('Explore more', 'Related services') }}
+    <div class="card-grid card-grid--3">
+      {% set shown = 0 %}
+      {% for s in page.parent.children.published if s != page and s.header.nav_group == 'Clinical Nutrition Services' and shown < 3 %}
+        {% set shown = shown + 1 %}
+        {% include 'partials/page-card.html.twig' with {'card': s} %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include 'partials/cta-band.html.twig' with {'cta': {'eyebrow': 'Take the next step', 'title': 'Start your journey toward better health', 'text': 'Speak with our nutrition specialists about a personalised plan for your condition.', 'button_label': 'Book an Appointment'}} %}
+{% endblock %}

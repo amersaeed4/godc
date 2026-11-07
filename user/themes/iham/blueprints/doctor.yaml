@@ -1,0 +1,347 @@
+title: Doctor profile
+extends@: default
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+            content:
+              unset@: true
+            header.media_order:
+              type: pagemedia
+              label: Page media
+              help: Upload images here, then pick them in the fields below.
+            pf_s:
+              type: section
+              title: Profile
+              underline: true
+            header.profile.name:
+              type: text
+              label: Name
+            header.profile.role:
+              type: text
+              label: Role / title
+            header.profile.tagline:
+              type: text
+              label: Tagline (small line above the name)
+            header.profile.bio:
+              type: textarea
+              label: Short bio
+              rows: 3
+              help: Shown on the homepage, the Our Doctors page and in the page header.
+            header.profile.chips:
+              type: textarea
+              label: Specialty tags
+              rows: 5
+              help: One item per line.
+            header.profile.image:
+              type: pagemediaselect
+              label: Portrait photo
+              preview_images: true
+              help: A cut-out or transparent PNG works best.
+            header.profile.card_image:
+              type: pagemediaselect
+              label: Card photo (square, head & shoulders)
+              preview_images: true
+              help: Optional. Used in the small doctor cards on the homepage. Falls back to the portrait photo.
+            st_s:
+              type: section
+              title: Key facts strip (optional)
+              underline: true
+            header.stats:
+              type: list
+              label: Facts
+              style: vertical
+              collapsed: true
+              btn_label: Add fact
+              fields:
+                .value:
+                  type: text
+                  label: Value
+                  placeholder: "25+"
+                .label:
+                  type: textarea
+                  label: Description
+                  rows: 2
+            qt_s:
+              type: section
+              title: Quote (optional)
+              underline: true
+            header.quote.text:
+              type: textarea
+              label: Quote
+              rows: 4
+            header.quote.author:
+              type: text
+              label: Attribution
+            sp_s:
+              type: section
+              title: Specialisations (optional)
+              underline: true
+            header.specialisations.title:
+              type: text
+              label: Section title
+            header.specialisations.text:
+              type: textarea
+              label: Intro
+              rows: 2
+            header.specialisations.items:
+              type: list
+              label: Specialisations
+              style: vertical
+              collapsed: true
+              btn_label: Add specialisation
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 4
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                  preview_images: true
+                .link:
+                  type: text
+                  label: Page link
+                  placeholder: "/our-services/obesity-surgery"
+            wy_s:
+              type: section
+              title: Why choose this doctor (optional)
+              underline: true
+            header.why.title:
+              type: text
+              label: Title
+            header.why.items:
+              type: textarea
+              label: Reasons
+              rows: 6
+              help: One item per line.
+            ed_s:
+              type: section
+              title: Training & education (optional)
+              underline: true
+            header.education.title:
+              type: text
+              label: Section title
+            header.education.items:
+              type: list
+              label: Qualifications
+              style: vertical
+              collapsed: true
+              btn_label: Add qualification
+              fields:
+                .degree:
+                  type: text
+                  label: Qualification
+                .institution:
+                  type: text
+                  label: Institution
+                .logo:
+                  type: pagemediaselect
+                  label: Institution logo
+                  preview_images: true
+            in_s:
+              type: section
+              title: Introduction / about (optional)
+              underline: true
+            header.intro.title:
+              type: text
+              label: Section title
+            header.intro.text:
+              type: textarea
+              label: Introduction
+              rows: 5
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.intro.points:
+              type: list
+              label: Key points
+              style: vertical
+              collapsed: true
+              btn_label: Add point
+              fields:
+                .title:
+                  type: text
+                  label: Heading
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 3
+            sv_s:
+              type: section
+              title: Services list (optional)
+              underline: true
+            header.services.title:
+              type: text
+              label: Section title
+            header.services.text:
+              type: textarea
+              label: Text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.services.items:
+              type: textarea
+              label: Services
+              rows: 6
+              help: One item per line.
+            cm_s:
+              type: section
+              title: Commitment statement (optional)
+              underline: true
+            header.commitment.title:
+              type: text
+              label: Title
+            header.commitment.text:
+              type: textarea
+              label: Text
+              rows: 5
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            ex_s:
+              type: section
+              title: Experience (optional)
+              underline: true
+            header.experience.title:
+              type: text
+              label: Section title
+            header.experience.text:
+              type: textarea
+              label: Text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.experience.rows:
+              type: list
+              label: Positions
+              style: vertical
+              collapsed: true
+              btn_label: Add position
+              fields:
+                .years:
+                  type: text
+                  label: Years
+                .department:
+                  type: text
+                  label: Department
+                .position:
+                  type: text
+                  label: Position
+                .hospital:
+                  type: text
+                  label: Hospital
+            cl_s:
+              type: section
+              title: Clinic (optional)
+              underline: true
+            header.clinic.eyebrow:
+              type: text
+              label: Eyebrow
+            header.clinic.title:
+              type: text
+              label: Title
+            header.clinic.address:
+              type: text
+              label: Address
+            header.clinic.hours:
+              type: text
+              label: Opening hours
+            header.clinic.phone:
+              type: text
+              label: Phone
+            header.clinic.email:
+              type: text
+              label: Email
+            header.clinic.map_link:
+              type: text
+              label: Directions link
+            header.clinic.image:
+              type: pagemediaselect
+              label: Clinic photo
+              preview_images: true
+            cta_s:
+              type: section
+              title: Call to action
+              underline: true
+            header.cta.eyebrow:
+              type: text
+              label: Eyebrow
+            header.cta.title:
+              type: text
+              label: Title
+            header.cta.text:
+              type: textarea
+              label: Text
+              rows: 3
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.cta.button_label:
+              type: text
+              label: Button label
+            header.cta.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+        seo:
+          type: tab
+          title: SEO & Sharing
+          fields:
+            seo_s:
+              type: section
+              title: Search engine optimisation
+              underline: true
+            header.seo_title:
+              type: text
+              label: SEO title
+              help: "Shown in browser tabs and search results. Leave blank to use \"Page title | Site name\". Aim for under 60 characters."
+            header.metadata.description:
+              type: textarea
+              label: Meta description
+              rows: 3
+              help: "Shown under the title in search results. Aim for 120–160 characters."
+            header.metadata.keywords:
+              type: text
+              label: Meta keywords
+              help: "Comma-separated. Optional – most search engines ignore these, but some directories use them."
+            header.robots:
+              type: select
+              label: Search engine visibility
+              options:
+                index,follow: Visible to search engines (default)
+                noindex,follow: Hide from search (noindex)
+                noindex,nofollow: Hide and do not follow links
+              default: index,follow
+            header.canonical:
+              type: text
+              label: Canonical URL
+              help: Only set this if the same content lives at another address.
+            social_s:
+              type: section
+              title: Social sharing & listings
+              underline: true
+            header.og_image:
+              type: pagemediaselect
+              label: Social sharing image
+              preview_images: true
+              help: "Recommended 1200 × 630 px. Falls back to the card image, then the site default."
+            header.summary:
+              type: textarea
+              label: Short summary
+              rows: 3
+              help: Shown on cards and listing pages that link to this page.
+            header.card_image:
+              type: pagemediaselect
+              label: Card image
+              preview_images: true
+              help: Image shown on cards that link to this page.
+            header.nav_group:
+              type: text
+              label: Menu group
+              help: "Optional. Groups pages under a heading inside the \"Our Services\" dropdown."
+        options:
+          fields:
+            publishing:
+              fields:
+                header.metadata:
+                  unset@: true

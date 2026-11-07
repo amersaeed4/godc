@@ -1,0 +1,31 @@
+{# Shared UI macros. Import with: {% import 'macros/ui.html.twig' as ui %} #}
+
+{% macro icon(name, cls) -%}
+<svg class="icon{{ cls ? ' ' ~ cls : '' }}" aria-hidden="true" focusable="false"><use href="#i-{{ name|default('check') }}"/></svg>
+{%- endmacro %}
+
+{# Responsive image from a page's own media. Prints nothing when the file is missing. #}
+{% macro img(pg, name, alt, cls, eager) -%}
+{%- set m = name ? pg.media[name] : null -%}
+{%- if m -%}
+<img src="{{ m.url }}" alt="{{ (alt ?? '')|e('html_attr') }}"{% if cls %} class="{{ cls }}"{% endif %}{% if m.width %} width="{{ m.width }}" height="{{ m.height }}"{% endif %} loading="{{ eager ? 'eager' : 'lazy' }}" decoding="async"{% if eager %} fetchpriority="high"{% endif %}>
+{%- endif -%}
+{%- endmacro %}
+
+{# Section heading: eyebrow + title + optional lead. $tone = '' | 'light' (for dark backgrounds) #}
+{% macro head(eyebrow, title, lead, tone, align) -%}
+<header class="sec-head{{ tone ? ' sec-head--' ~ tone : '' }}{{ align == 'left' ? ' sec-head--left' : '' }}">
+  {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+  {% if title %}<h2>{{ title }}</h2>{% endif %}
+  {% if lead %}<div class="lead">{{ lead|markdown(false) }}</div>{% endif %}
+</header>
+{%- endmacro %}
+
+{# Check list from "one item per line" text #}
+{% macro checklist(items, cls) -%}
+{%- if items|length -%}
+<ul class="checklist{{ cls ? ' ' ~ cls : '' }}">
+  {%- for it in items %}<li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>{{ it|markdown(false) }}</span></li>{% endfor -%}
+</ul>
+{%- endif -%}
+{%- endmacro %}

@@ -1,0 +1,11 @@
+{# A card linking to another page. Param: card (page) #}
+{% import 'macros/ui.html.twig' as ui %}
+{% set img_name = card.header.card_image %}
+<a class="page-card" href="{{ card.url }}">
+  {% if img_name and card.media[img_name] %}<span class="page-card__media">{{ ui.img(card, img_name, card.title) }}</span>{% endif %}
+  <span class="page-card__body">
+    <span class="page-card__title">{{ card.menu ?: card.title }}</span>
+    {% if card.header.summary %}<span class="page-card__text">{{ card.header.summary }}</span>{% endif %}
+    <span class="page-card__more">Learn more {{ ui.icon('arrow-right') }}</span>
+  </span>
+</a>

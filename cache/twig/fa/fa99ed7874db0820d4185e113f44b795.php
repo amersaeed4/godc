@@ -1,0 +1,187 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\CoreExtension;
+use Twig\Extension\SandboxExtension;
+use Twig\MacroNamespace;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Sandbox\SecurityNotAllowedTestError;
+use Twig\Source;
+use Twig\Template;
+use Twig\TemplateWrapper;
+
+/* @Page:/Users/amer/Sites/godc/user/pages/04.our-services/02.diabetes-care/03.diabetes-treatment/01.type-2-diabetes */
+class __TwigTemplate_9cb9ea4bd98f9f29474a6ca8cacd1e37_sandboxed extends Template
+{
+    private Source $source;
+    /**
+     * @var array<string, MacroNamespace>
+     */
+    private array $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        $this->sandbox = $env->getExtension(SandboxExtension::class)->getChecker();
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->parent = false;
+
+        $this->blocks = [
+        ];
+    }
+
+    protected function doDisplay(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        // line 1
+        yield "<h2>Role Of Metabolic Surgery In Type-2 Diabetes Mellitus</h2>
+<p><strong>Epidemiology</strong></p>
+<p>Globally as of 2015, it was estimated that there were 392 million people with type-2 diabetes making up about 90% of diabetes total cases. This is equivalent to about 6% of the world\x27s population. Diabetes is common both in the <a href=\"https://mdwiki.org/wiki/Developed_world\">developed</a> and the <a href=\"https://mdwiki.org/wiki/Developing_world\">developing world</a>. It remains uncommon, however, in the <a href=\"https://mdwiki.org/wiki/Least_developed_countries\">least</a><a href=\"https://mdwiki.org/wiki/Least_developed_countries\">developed countries</a>.</p>
+<p>Women seem to be at a greater risk as do certain ethnic groups, such as <a href=\"https://mdwiki.org/wiki/South_Asian_ethnic_groups\">South Asians</a>, <a href=\"https://mdwiki.org/wiki/Pacific_Islanders\">Pacific Islanders</a>, <a href=\"https://mdwiki.org/wiki/Latinos\">Latinos</a>, and <a href=\"https://mdwiki.org/wiki/Indigenous_peoples_of_the_Americas\">Native Americans</a>. This may be due to enhanced sensitivity to a <a href=\"https://mdwiki.org/wiki/Western_pattern_diet\">Western lifestyle</a> in certain ethnic groups. Traditionally considered a disease of adults, type-2 Diabetes is increasingly diagnosed in children in parallel with rising <a href=\"https://mdwiki.org/wiki/Childhood_obesity\">obesity</a></p>
+<h2>Types Of Diabetes Mellitus</h2>
+<p><strong>Chronic Complications</strong></p>
+<ul>
+<li>Retinopathy</li>
+<li>Nephropathy</li>
+<li>Neuropathy</li>
+</ul>
+<p><strong>Macrovascular</strong></p>
+<ul>
+<li>Cerebrovascular, Cardiovascular, Peripheral Vascular Disease</li>
+</ul>
+<p><strong>Acute Complications</strong></p>
+<ul>
+<li>Diabetic Ketoacidosis</li>
+<li>Diabetic nonketotic, Hyperosmolar coma</li>
+<li>Hypoglycemia</li>
+</ul>
+<h2>Why To Treat Diabetes Mellitus</h2>
+<p>Diabetes is a serious medical condition that can cause you to become fatigued, feel extreme hunger, and experience other more serious problems over time.</p>
+<p>If Diabetes Mellitus is left untreated, it can lead to multiple devastating complications, such as heart diseases ( Myocardial Infarction), nerve damage (Peripheral Neuropathy), blindness ( Diabetic Retinopathy), kidney failure ( Chronic Kidney Disease), Alzheimer’s disease ( Cognitive Dysfuntion, vascular Dementia). Sexual Dysfunction and amputations. Additionally, the risk of death for adults with diabetes is 50 percent higher than for adults without diabetes</p>
+<p><strong>Management And Treatment Options:</strong></p>
+<p>Management of type 2 diabetes focuses on lifestyle interventions, lowering other cardiovascular risk factors (Hypertension, High Cholesterol, Micro-albuminuria) and maintaining blood glucose levels in the normal range. Self-monitoring of blood glucose for people with newly diagnosed type-2 diabetes may be used in combination with Education.</p>
+<ul>
+<li>Life style and Dietary modifications</li>
+<li>Physical activity</li>
+<li>Medications</li>
+<li>Oral Anti-Glycemic Agents</li>
+<li>Insulin</li>
+<li>Weight Loss Surgery ( Bariatric / Metabolic Surgery )</li>
+</ul>
+<h2>Bariatric / Metabolic Surgery For Diabetes Mellitus Type-2</h2>
+<p>Bariatric surgery (or weight loss surgery) includes a variety of procedures performed on people who are <a href=\"https://mdwiki.org/wiki/Obesity\">obese</a>. Long term weight loss through the <a href=\"https://mdwiki.org/wiki/Standard_treatment\">standard of care</a> procedures (<a href=\"https://mdwiki.org/wiki/Gastric_bypass_surgery\">Roux en-Y bypass</a>, <a href=\"https://mdwiki.org/wiki/Sleeve_gastrectomy\">sleeve</a><a href=\"https://mdwiki.org/wiki/Sleeve_gastrectomy\">gastrectomy</a>, and <a href=\"https://mdwiki.org/wiki/Duodenal_switch\">biliopancreatic</a><a href=\"https://mdwiki.org/wiki/Duodenal_switch\">diversion with duodenal switch</a>) is largely achieved by altering gut hormone levels responsible for hunger and satiety, leading to a new hormonal weight set point. Bariatric surgery is the most effective treatment causing weight loss and reducing complications of obesity as well as Diabetes Mellitus.</p>
+<p>Long-term studies show the procedures result in significant long-term loss of weight, recovery from <a href=\"https://mdwiki.org/wiki/Diabetes\">diabetes</a>, improvement in cardiovascular risk factors, and a mortality reduction from 40% to 23%.</p>";
+        return; yield;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getTemplateName(): string
+    {
+        return "@Page:/Users/amer/Sites/godc/user/pages/04.our-services/02.diabetes-care/03.diabetes-treatment/01.type-2-diabetes";
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getDefaultEscapeStrategy(): string|false
+    {
+        return "html";
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getDebugInfo(): array
+    {
+        return array (  45 => 1,);
+    }
+
+    public function getSourceContext(): Source
+    {
+        return new Source("<h2>Role Of Metabolic Surgery In Type-2 Diabetes Mellitus</h2>
+<p><strong>Epidemiology</strong></p>
+<p>Globally as of 2015, it was estimated that there were 392 million people with type-2 diabetes making up about 90% of diabetes total cases. This is equivalent to about 6% of the world\x27s population. Diabetes is common both in the <a href=\"https://mdwiki.org/wiki/Developed_world\">developed</a> and the <a href=\"https://mdwiki.org/wiki/Developing_world\">developing world</a>. It remains uncommon, however, in the <a href=\"https://mdwiki.org/wiki/Least_developed_countries\">least</a><a href=\"https://mdwiki.org/wiki/Least_developed_countries\">developed countries</a>.</p>
+<p>Women seem to be at a greater risk as do certain ethnic groups, such as <a href=\"https://mdwiki.org/wiki/South_Asian_ethnic_groups\">South Asians</a>, <a href=\"https://mdwiki.org/wiki/Pacific_Islanders\">Pacific Islanders</a>, <a href=\"https://mdwiki.org/wiki/Latinos\">Latinos</a>, and <a href=\"https://mdwiki.org/wiki/Indigenous_peoples_of_the_Americas\">Native Americans</a>. This may be due to enhanced sensitivity to a <a href=\"https://mdwiki.org/wiki/Western_pattern_diet\">Western lifestyle</a> in certain ethnic groups. Traditionally considered a disease of adults, type-2 Diabetes is increasingly diagnosed in children in parallel with rising <a href=\"https://mdwiki.org/wiki/Childhood_obesity\">obesity</a></p>
+<h2>Types Of Diabetes Mellitus</h2>
+<p><strong>Chronic Complications</strong></p>
+<ul>
+<li>Retinopathy</li>
+<li>Nephropathy</li>
+<li>Neuropathy</li>
+</ul>
+<p><strong>Macrovascular</strong></p>
+<ul>
+<li>Cerebrovascular, Cardiovascular, Peripheral Vascular Disease</li>
+</ul>
+<p><strong>Acute Complications</strong></p>
+<ul>
+<li>Diabetic Ketoacidosis</li>
+<li>Diabetic nonketotic, Hyperosmolar coma</li>
+<li>Hypoglycemia</li>
+</ul>
+<h2>Why To Treat Diabetes Mellitus</h2>
+<p>Diabetes is a serious medical condition that can cause you to become fatigued, feel extreme hunger, and experience other more serious problems over time.</p>
+<p>If Diabetes Mellitus is left untreated, it can lead to multiple devastating complications, such as heart diseases ( Myocardial Infarction), nerve damage (Peripheral Neuropathy), blindness ( Diabetic Retinopathy), kidney failure ( Chronic Kidney Disease), Alzheimer’s disease ( Cognitive Dysfuntion, vascular Dementia). Sexual Dysfunction and amputations. Additionally, the risk of death for adults with diabetes is 50 percent higher than for adults without diabetes</p>
+<p><strong>Management And Treatment Options:</strong></p>
+<p>Management of type 2 diabetes focuses on lifestyle interventions, lowering other cardiovascular risk factors (Hypertension, High Cholesterol, Micro-albuminuria) and maintaining blood glucose levels in the normal range. Self-monitoring of blood glucose for people with newly diagnosed type-2 diabetes may be used in combination with Education.</p>
+<ul>
+<li>Life style and Dietary modifications</li>
+<li>Physical activity</li>
+<li>Medications</li>
+<li>Oral Anti-Glycemic Agents</li>
+<li>Insulin</li>
+<li>Weight Loss Surgery ( Bariatric / Metabolic Surgery )</li>
+</ul>
+<h2>Bariatric / Metabolic Surgery For Diabetes Mellitus Type-2</h2>
+<p>Bariatric surgery (or weight loss surgery) includes a variety of procedures performed on people who are <a href=\"https://mdwiki.org/wiki/Obesity\">obese</a>. Long term weight loss through the <a href=\"https://mdwiki.org/wiki/Standard_treatment\">standard of care</a> procedures (<a href=\"https://mdwiki.org/wiki/Gastric_bypass_surgery\">Roux en-Y bypass</a>, <a href=\"https://mdwiki.org/wiki/Sleeve_gastrectomy\">sleeve</a><a href=\"https://mdwiki.org/wiki/Sleeve_gastrectomy\">gastrectomy</a>, and <a href=\"https://mdwiki.org/wiki/Duodenal_switch\">biliopancreatic</a><a href=\"https://mdwiki.org/wiki/Duodenal_switch\">diversion with duodenal switch</a>) is largely achieved by altering gut hormone levels responsible for hunger and satiety, leading to a new hormonal weight set point. Bariatric surgery is the most effective treatment causing weight loss and reducing complications of obesity as well as Diabetes Mellitus.</p>
+<p>Long-term studies show the procedures result in significant long-term loss of weight, recovery from <a href=\"https://mdwiki.org/wiki/Diabetes\">diabetes</a>, improvement in cardiovascular risk factors, and a mortality reduction from 40% to 23%.</p>", "@Page:/Users/amer/Sites/godc/user/pages/04.our-services/02.diabetes-care/03.diabetes-treatment/01.type-2-diabetes", "");
+    }
+    
+    public function ensureSecurityChecked(): void
+    {
+        if ($this->sandbox->isSandboxed($this->source)) {
+            $this->checkSecurity();
+        }
+    }
+    
+    public function checkSecurity()
+    {
+        static $tags = [];
+        static $filters = [];
+        static $functions = [];
+        static $tests = [];
+
+        try {
+            $this->sandbox->checkSecurity(
+                [],
+                [],
+                [],
+                [],
+                $this->source
+            );
+        } catch (SecurityError $e) {
+            if ($e instanceof SecurityNotAllowedTagError && isset($tags[$e->getTagName()])) {
+                $e->setTemplateLine($tags[$e->getTagName()]);
+            } elseif ($e instanceof SecurityNotAllowedFilterError && isset($filters[$e->getFilterName()])) {
+                $e->setTemplateLine($filters[$e->getFilterName()]);
+            } elseif ($e instanceof SecurityNotAllowedFunctionError && isset($functions[$e->getFunctionName()])) {
+                $e->setTemplateLine($functions[$e->getFunctionName()]);
+            } elseif ($e instanceof SecurityNotAllowedTestError && isset($tests[$e->getTestName()])) {
+                $e->setTemplateLine($tests[$e->getTestName()]);
+            }
+
+            throw $e;
+        }
+
+    }
+}

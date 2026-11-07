@@ -1,0 +1,5 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+  {% include 'partials/page-hero.html.twig' with {'eyebrow': page.header.hero.eyebrow, 'title': page.header.hero.title ?: page.title, 'lead': page.header.hero.lead, 'image': page.header.hero.image} %}
+  <section class="section"><div class="container container--narrow prose">{{ page.content|raw }}</div></section>
+{% endblock %}

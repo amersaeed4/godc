@@ -1,0 +1,13 @@
+{% set crumbs = [] %}
+{% set cp = page %}
+{% for i in 1..6 %}{% if cp and cp.parent %}{% set crumbs = [{'title': cp.menu ?: cp.title, 'url': cp.url, 'current': (cp == page)}]|merge(crumbs) %}{% set cp = cp.parent %}{% endif %}{% endfor %}
+{% if not page.home %}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ base_url_relative ?: '/' }}">Home</a></li>
+    {% for c in crumbs %}
+      {% if c.current %}<li aria-current="page">{{ c.title }}</li>{% else %}<li><a href="{{ c.url }}">{{ c.title }}</a></li>{% endif %}
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}

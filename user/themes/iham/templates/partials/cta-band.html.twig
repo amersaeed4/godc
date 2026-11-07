@@ -1,0 +1,17 @@
+{# Params: cta (object with eyebrow,title,text,button_label,button_link) #}
+{% import 'macros/ui.html.twig' as ui %}
+{% if cta and cta.title %}
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div class="cta-band__copy">
+      {% if cta.eyebrow %}<p class="eyebrow eyebrow--light">{{ cta.eyebrow }}</p>{% endif %}
+      <h2>{{ cta.title }}</h2>
+      {% if cta.text %}<div class="cta-band__text">{{ cta.text|markdown }}</div>{% endif %}
+    </div>
+    <div class="cta-band__actions">
+      <a class="btn btn-accent btn-lg" href="{{ (cta.button_link ?: '/book-a-consultation')|href }}">{{ cta.button_label ?: 'Book an Appointment' }} {{ ui.icon('arrow-right') }}</a>
+      <a class="cta-band__phone" href="tel:{{ config.themes.iham.contact.phone|tel }}">{{ ui.icon('phone') }} {{ config.themes.iham.contact.phone }}</a>
+    </div>
+  </div>
+</section>
+{% endif %}

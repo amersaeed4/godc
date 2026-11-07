@@ -1,0 +1,14 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title ?: page.title, 'lead': h.hero.text} %}
+<section class="section">
+  <div class="container">
+    {% if h.children_title %}{{ ui.head(null, h.children_title) }}{% endif %}
+    <div class="card-grid card-grid--3">
+      {% for c in page.children.visible %}{% include 'partials/page-card.html.twig' with {'card': c} %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

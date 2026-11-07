@@ -1,0 +1,31 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': 'Blog & Newsroom', 'title': page.title} %}
+<section class="section">
+  <div class="container article-layout">
+    <article class="article-main">
+      <p class="post-meta">By {{ h.author ?: 'GODC Clinical Team' }} · <time datetime="{{ page.date|date('Y-m-d') }}">{{ page.date|date('F j, Y') }}</time></p>
+      {% if h.image %}<div class="media-frame media-frame--wide">{{ ui.img(page, h.image, page.title, '', true) }}</div>{% endif %}
+      <div class="prose prose--lg">{{ page.content|raw }}</div>
+      <p class="post-disclaimer">{{ config.themes.iham.footer.disclaimer }}</p>
+    </article>
+    <aside class="article-side">
+      {% set more = page.parent.children.published.order('date', 'desc') %}
+      <div class="side-card">
+        <h3>More articles</h3>
+        <ul class="side-links">
+          {% for s in more if s != page %}<li><a href="{{ s.url }}">{{ s.title }}</a></li>{% endfor %}
+        </ul>
+        <a class="link-arrow" href="{{ page.parent.url }}">All articles {{ ui.icon('arrow-right') }}</a>
+      </div>
+      <div class="side-card side-card--contact">
+        <h3>Talk to a specialist</h3>
+        <p>Get personalised, evidence-based guidance from our clinical team.</p>
+        <a class="btn btn-primary btn-block" href="{{ '/book-a-consultation'|href }}">Book an Appointment</a>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}

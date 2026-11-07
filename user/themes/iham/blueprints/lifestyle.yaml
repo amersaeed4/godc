@@ -1,0 +1,191 @@
+title: Lifestyle Medicine
+extends@: default
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+            content:
+              unset@: true
+            header.media_order:
+              type: pagemedia
+              label: Page media
+              help: Upload images here, then pick them in the fields below.
+            hero_s:
+              type: section
+              title: Hero
+              underline: true
+            header.hero.eyebrow:
+              type: text
+              label: Eyebrow
+            header.hero.title:
+              type: text
+              label: Title
+            header.hero.text:
+              type: textarea
+              label: Intro text
+              rows: 5
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.hero.form:
+              type: select
+              label: Hero form
+              options:
+                booking-appointment: Appointment request (name, phone, email, type)
+                quick-booking: Quick booking (with date & time)
+                consultation: Full consultation form
+                corporate-enquiry: Corporate enquiry
+                global-enquiry: Global health enquiry
+                review: Patient feedback
+              help: "Form definitions live in the hidden \"Site Forms\" page (Pages → forms)."
+            header.hero.form_title:
+              type: text
+              label: Hero form title
+            pil_s:
+              type: section
+              title: Pillars
+              underline: true
+            header.pillars:
+              type: list
+              label: The six pillars
+              style: vertical
+              collapsed: true
+              btn_label: Add pillar
+              fields:
+                .ordinal:
+                  type: text
+                  label: Label
+                  placeholder: "1st Pillar"
+                .title:
+                  type: text
+                  label: Title
+                .anchor:
+                  type: text
+                  label: Anchor (URL fragment)
+                  placeholder: nutrition
+                .lead:
+                  type: text
+                  label: Lead-in line
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 6
+                .icon:
+                  type: select
+                  label: Icon
+                  options:
+                    stethoscope: Stethoscope
+                    heart: Heart
+                    apple: Apple
+                    activity: Activity
+                    moon: Moon
+                    brain: Brain
+                    users: Users
+                    shield: Shield
+                    leaf: Leaf
+                    clipboard: Clipboard
+                    chart: Chart
+                    book: Book
+                    smile: Smile
+                    award: Award
+                    building: Building
+                    globe: Globe
+                    pill: Pill
+                    droplet: Droplet
+                    bone: Bone
+                    scale: Scale
+                    flask: Flask
+                    baby: Baby
+                    file: File
+                    phone: Phone
+                    mail: Mail
+                    calendar: Calendar
+                    clock: Clock
+                    check: Check
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                  preview_images: true
+            sum_s:
+              type: section
+              title: Closing summary
+              underline: true
+            header.summary_block.title:
+              type: text
+              label: Title
+            header.summary_block.text:
+              type: textarea
+              label: Text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.summary_block.button_label:
+              type: text
+              label: Button label
+            header.summary_block.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+        seo:
+          type: tab
+          title: SEO & Sharing
+          fields:
+            seo_s:
+              type: section
+              title: Search engine optimisation
+              underline: true
+            header.seo_title:
+              type: text
+              label: SEO title
+              help: "Shown in browser tabs and search results. Leave blank to use \"Page title | Site name\". Aim for under 60 characters."
+            header.metadata.description:
+              type: textarea
+              label: Meta description
+              rows: 3
+              help: "Shown under the title in search results. Aim for 120–160 characters."
+            header.metadata.keywords:
+              type: text
+              label: Meta keywords
+              help: "Comma-separated. Optional – most search engines ignore these, but some directories use them."
+            header.robots:
+              type: select
+              label: Search engine visibility
+              options:
+                index,follow: Visible to search engines (default)
+                noindex,follow: Hide from search (noindex)
+                noindex,nofollow: Hide and do not follow links
+              default: index,follow
+            header.canonical:
+              type: text
+              label: Canonical URL
+              help: Only set this if the same content lives at another address.
+            social_s:
+              type: section
+              title: Social sharing & listings
+              underline: true
+            header.og_image:
+              type: pagemediaselect
+              label: Social sharing image
+              preview_images: true
+              help: "Recommended 1200 × 630 px. Falls back to the card image, then the site default."
+            header.summary:
+              type: textarea
+              label: Short summary
+              rows: 3
+              help: Shown on cards and listing pages that link to this page.
+            header.card_image:
+              type: pagemediaselect
+              label: Card image
+              preview_images: true
+              help: Image shown on cards that link to this page.
+            header.nav_group:
+              type: text
+              label: Menu group
+              help: "Optional. Groups pages under a heading inside the \"Our Services\" dropdown."
+        options:
+          fields:
+            publishing:
+              fields:
+                header.metadata:
+                  unset@: true

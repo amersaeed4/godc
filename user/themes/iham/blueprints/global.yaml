@@ -1,0 +1,284 @@
+title: Global health consulting
+extends@: default
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+            content:
+              unset@: true
+            header.media_order:
+              type: pagemedia
+              label: Page media
+              help: Upload images here, then pick them in the fields below.
+            hero_s:
+              type: section
+              title: Hero
+              underline: true
+            header.hero.eyebrow:
+              type: text
+              label: Eyebrow
+            header.hero.title:
+              type: text
+              label: Title
+            header.hero.subtitle:
+              type: text
+              label: Subtitle
+            header.hero.text:
+              type: textarea
+              label: Text
+              rows: 6
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.hero.image:
+              type: pagemediaselect
+              label: Image
+              preview_images: true
+            header.hero.button_label:
+              type: text
+              label: Button label
+            header.hero.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            out_s:
+              type: section
+              title: What we help organisations achieve
+              underline: true
+            header.outcomes.title:
+              type: text
+              label: Section title
+            header.outcomes.items:
+              type: list
+              label: Outcomes
+              style: vertical
+              collapsed: true
+              btn_label: Add outcome
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 4
+            header.outcomes.box.title:
+              type: text
+              label: Highlight box title
+            header.outcomes.box.text:
+              type: textarea
+              label: Highlight box text
+              rows: 3
+            header.outcomes.box.button_label:
+              type: text
+              label: Button label
+            header.outcomes.box.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            how_s:
+              type: section
+              title: How we work
+              underline: true
+            header.how.eyebrow:
+              type: text
+              label: Eyebrow
+            header.how.title:
+              type: text
+              label: Title
+            header.how.intro:
+              type: textarea
+              label: Intro
+              rows: 2
+            header.how.items:
+              type: textarea
+              label: Steps
+              rows: 6
+              help: One item per line.
+            header.how.image:
+              type: pagemediaselect
+              label: Image
+              preview_images: true
+            exp_s:
+              type: section
+              title: Areas of expertise
+              underline: true
+            header.expertise.eyebrow:
+              type: text
+              label: Eyebrow
+            header.expertise.title:
+              type: text
+              label: Title
+            header.expertise.items:
+              type: textarea
+              label: Services
+              rows: 10
+              help: One item per line.
+            par_s:
+              type: section
+              title: Partners
+              underline: true
+            header.partners.eyebrow:
+              type: text
+              label: Eyebrow
+            header.partners.title:
+              type: text
+              label: Title
+            header.partners.items:
+              type: textarea
+              label: Partner types
+              rows: 6
+              help: One item per line.
+            header.partners.international_title:
+              type: text
+              label: International heading
+            header.partners.international:
+              type: list
+              label: International partner logos
+              style: vertical
+              collapsed: true
+              btn_label: Add logo
+              fields:
+                .image:
+                  type: pagemediaselect
+                  label: Logo
+                  preview_images: true
+                .name:
+                  type: text
+                  label: Name
+            header.partners.national_title:
+              type: text
+              label: National heading
+            header.partners.national:
+              type: list
+              label: National partner logos
+              style: vertical
+              collapsed: true
+              btn_label: Add logo
+              fields:
+                .image:
+                  type: pagemediaselect
+                  label: Logo
+                  preview_images: true
+                .name:
+                  type: text
+                  label: Name
+            wy_s:
+              type: section
+              title: Why organisations choose GODC
+              underline: true
+            header.why.eyebrow:
+              type: text
+              label: Eyebrow
+            header.why.title:
+              type: text
+              label: Title
+            header.why.text:
+              type: textarea
+              label: Text
+              rows: 6
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            cta_s:
+              type: section
+              title: Call to action
+              underline: true
+            header.cta.eyebrow:
+              type: text
+              label: Eyebrow
+            header.cta.title:
+              type: text
+              label: Title
+            header.cta.text:
+              type: textarea
+              label: Text
+              rows: 3
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.cta.button_label:
+              type: text
+              label: Button label
+            header.cta.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            fm_s:
+              type: section
+              title: Enquiry form
+              underline: true
+            header.enquiry.title:
+              type: text
+              label: Title
+            header.enquiry.form:
+              type: select
+              label: Form
+              options:
+                booking-appointment: Appointment request (name, phone, email, type)
+                quick-booking: Quick booking (with date & time)
+                consultation: Full consultation form
+                corporate-enquiry: Corporate enquiry
+                global-enquiry: Global health enquiry
+                review: Patient feedback
+              help: "Form definitions live in the hidden \"Site Forms\" page (Pages → forms)."
+        seo:
+          type: tab
+          title: SEO & Sharing
+          fields:
+            seo_s:
+              type: section
+              title: Search engine optimisation
+              underline: true
+            header.seo_title:
+              type: text
+              label: SEO title
+              help: "Shown in browser tabs and search results. Leave blank to use \"Page title | Site name\". Aim for under 60 characters."
+            header.metadata.description:
+              type: textarea
+              label: Meta description
+              rows: 3
+              help: "Shown under the title in search results. Aim for 120–160 characters."
+            header.metadata.keywords:
+              type: text
+              label: Meta keywords
+              help: "Comma-separated. Optional – most search engines ignore these, but some directories use them."
+            header.robots:
+              type: select
+              label: Search engine visibility
+              options:
+                index,follow: Visible to search engines (default)
+                noindex,follow: Hide from search (noindex)
+                noindex,nofollow: Hide and do not follow links
+              default: index,follow
+            header.canonical:
+              type: text
+              label: Canonical URL
+              help: Only set this if the same content lives at another address.
+            social_s:
+              type: section
+              title: Social sharing & listings
+              underline: true
+            header.og_image:
+              type: pagemediaselect
+              label: Social sharing image
+              preview_images: true
+              help: "Recommended 1200 × 630 px. Falls back to the card image, then the site default."
+            header.summary:
+              type: textarea
+              label: Short summary
+              rows: 3
+              help: Shown on cards and listing pages that link to this page.
+            header.card_image:
+              type: pagemediaselect
+              label: Card image
+              preview_images: true
+              help: Image shown on cards that link to this page.
+            header.nav_group:
+              type: text
+              label: Menu group
+              help: "Optional. Groups pages under a heading inside the \"Our Services\" dropdown."
+        options:
+          fields:
+            publishing:
+              fields:
+                header.metadata:
+                  unset@: true

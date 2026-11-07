@@ -1,0 +1,22 @@
+User-agent: *
+Disallow: /admin
+Disallow: /admin2
+Disallow: /.github/
+Disallow: /backup/
+Disallow: /bin/
+Disallow: /cache/
+Disallow: /logs/
+Disallow: /system/
+Disallow: /tmp/
+Disallow: /vendor/
+Disallow: /webserver-configs/
+Disallow: /user/accounts/
+Disallow: /user/config/
+Disallow: /user/data/
+Allow: /user/themes/
+Allow: /user/pages/
+Allow: /user/plugins/*.css$
+Allow: /user/plugins/*.js$
+Allow: /
+
+Sitemap: {{ uri.rootUrl(true) }}/sitemap.xml

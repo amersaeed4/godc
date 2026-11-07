@@ -1,0 +1,35 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title, 'lead': h.hero.text, 'hero_form': h.hero.form, 'hero_form_title': h.hero.form_title} %}
+
+<nav class="pillar-nav" aria-label="The six pillars">
+  <div class="container">
+    <ul>
+      {% for p in h.pillars %}<li><a href="#{{ p.anchor }}">{{ ui.icon(p.icon) }} {{ p.title }}</a></li>{% endfor %}
+    </ul>
+  </div>
+</nav>
+
+{% for p in h.pillars %}
+<section class="section pillar{{ loop.index is even ? ' section--mint' : '' }}" id="{{ p.anchor }}">
+  <div class="container split{{ loop.index is even ? ' split--reverse' : '' }}">
+    <div class="split__copy">
+      <p class="pillar__ord"><span class="icon-badge">{{ ui.icon(p.icon) }}</span> {{ p.ordinal }}</p>
+      <h2>{{ p.title }}</h2>
+      {% if p.lead %}<p class="pillar__lead">{{ p.lead }}</p>{% endif %}
+      <div class="prose">{{ p.text|markdown }}</div>
+    </div>
+    <div class="split__media"><div class="media-frame">{{ ui.img(page, p.image, p.title) }}</div></div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="section section--cream">
+  <div class="container container--narrow center">
+    {{ ui.head('An interconnected system', h.summary_block.title, h.summary_block.text) }}
+    {% if h.summary_block.button_label %}<a class="btn btn-primary btn-lg" href="{{ h.summary_block.button_link|href }}">{{ h.summary_block.button_label }} {{ ui.icon('arrow-right') }}</a>{% endif %}
+  </div>
+</section>
+{% endblock %}

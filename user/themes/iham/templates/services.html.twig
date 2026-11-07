@@ -1,0 +1,74 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title, 'lead': h.hero.text, 'button_label': h.hero.button_label, 'button_link': h.hero.button_link} %}
+
+{% if h.featured.group %}
+{% set featured_pages = page.children.published|filter(c => c.header.nav_group == h.featured.group) %}
+{% if featured_pages|length %}
+<section class="section section--cream">
+  <div class="container">
+    {{ ui.head(h.featured.eyebrow, h.featured.title, h.featured.text) }}
+    <div class="card-grid card-grid--4">
+      {% for c in featured_pages %}{% include 'partials/page-card.html.twig' with {'card': c} %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endif %}
+
+{% if h.categories|length %}
+<section class="section" data-tabs>
+  <div class="container">
+    <div class="tabs" role="tablist" aria-label="Service categories">
+      {% for cat in h.categories %}
+        <button class="tab{{ loop.first ? ' is-active' : '' }}" role="tab" id="tab-{{ loop.index }}" aria-controls="panel-{{ loop.index }}" aria-selected="{{ loop.first ? 'true' : 'false' }}" type="button">{{ cat.title }}</button>
+      {% endfor %}
+    </div>
+
+    {% for cat in h.categories %}
+    <div class="tab-panel{{ loop.first ? ' is-active' : '' }}" role="tabpanel" id="panel-{{ loop.index }}" aria-labelledby="tab-{{ loop.index }}" tabindex="0">
+      <div class="panel-head">
+        <div>
+          <h2>{{ cat.title }}</h2>
+          <p>{{ cat.text }}</p>
+        </div>
+        {% if cat.link %}<a class="btn btn-primary" href="{{ cat.link|href }}">{{ cat.link_label ?: 'View the full service' }} {{ ui.icon('arrow-right') }}</a>{% endif %}
+      </div>
+      <div class="card-grid card-grid--3">
+        {% for it in h.service_items if it.category == cat.title %}
+        <article class="service-card">
+          <h3>{{ it.title }}</h3>
+          <p>{{ it.text }}</p>
+          {% if it.why %}<div class="why-box"><strong>Why choose GODC?</strong><p>{{ it.why }}</p></div>{% endif %}
+          {% if cat.link %}<a class="link-arrow" href="{{ cat.link|href }}">Explore this service {{ ui.icon('arrow-right') }}</a>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if h.more.items|length %}
+<section class="section section--mint">
+  <div class="container">
+    {{ ui.head('Beyond the clinic', h.more.title) }}
+    <div class="card-grid card-grid--3">
+      {% for m in h.more.items %}
+      <a class="feature-card" href="{{ m.link|href }}">
+        <span class="icon-badge icon-badge--lg">{{ ui.icon(m.icon) }}</span>
+        <h3>{{ m.title }}</h3>
+        <p>{{ m.text }}</p>
+        <span class="link-arrow">Learn more {{ ui.icon('arrow-right') }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include 'partials/cta-band.html.twig' with {'cta': h.cta} %}
+{% endblock %}

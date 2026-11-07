@@ -1,0 +1,253 @@
+title: Clinical service
+extends@: default
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+            content:
+              unset@: true
+            header.media_order:
+              type: pagemedia
+              label: Page media
+              help: Upload images here, then pick them in the fields below.
+            hero_s:
+              type: section
+              title: Hero
+              underline: true
+              text: A short booking form is shown beside the hero.
+            header.hero.title:
+              type: text
+              label: Page heading (H1)
+            header.hero.intro:
+              type: textarea
+              label: Intro
+              rows: 5
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            sg_s:
+              type: section
+              title: Early signs
+              underline: true
+            header.signs.title:
+              type: text
+              label: Title
+            header.signs.text:
+              type: textarea
+              label: Text
+              rows: 10
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.signs.images:
+              type: list
+              label: Images
+              style: vertical
+              collapsed: true
+              btn_label: Add image
+              fields:
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                  preview_images: true
+            cta_s:
+              type: section
+              title: Consultation banner
+              underline: true
+            header.cta.title:
+              type: text
+              label: Title
+            header.cta.text:
+              type: textarea
+              label: Text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.cta.button_label:
+              type: text
+              label: Button label
+            ca_s:
+              type: section
+              title: Causes
+              underline: true
+            header.causes.title:
+              type: text
+              label: Title
+            header.causes.intro:
+              type: textarea
+              label: Intro
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.causes.items:
+              type: list
+              label: Cause cards
+              style: vertical
+              collapsed: true
+              btn_label: Add cause
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 4
+            co_s:
+              type: section
+              title: Conditions we treat
+              underline: true
+            header.conditions:
+              type: list
+              label: Conditions
+              style: vertical
+              collapsed: true
+              btn_label: Add condition
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 8
+                  help: Markdown is supported. Separate paragraphs with a blank line.
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                  preview_images: true
+            rk_s:
+              type: section
+              title: Risk factors
+              underline: true
+            header.risks.title:
+              type: text
+              label: Title
+            header.risks.intro:
+              type: textarea
+              label: Intro
+              rows: 5
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.risks.items:
+              type: list
+              label: Risk cards
+              style: vertical
+              collapsed: true
+              btn_label: Add risk
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 4
+                .why:
+                  type: textarea
+                  label: Why GODC
+                  rows: 3
+            wh_s:
+              type: section
+              title: When to see a specialist
+              underline: true
+            header.when.title:
+              type: text
+              label: Title
+            header.when.text:
+              type: textarea
+              label: Text
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.when.button_label:
+              type: text
+              label: Button label
+            dg_s:
+              type: section
+              title: Diagnosis
+              underline: true
+            header.diagnosis.title:
+              type: text
+              label: Title
+            header.diagnosis.intro:
+              type: textarea
+              label: Intro
+              rows: 4
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.diagnosis.columns:
+              type: list
+              label: Columns
+              style: vertical
+              collapsed: true
+              btn_label: Add column
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .intro:
+                  type: textarea
+                  label: Intro sentence
+                  rows: 2
+                .items:
+                  type: textarea
+                  label: Items (one per line)
+                  rows: 6
+        seo:
+          type: tab
+          title: SEO & Sharing
+          fields:
+            seo_s:
+              type: section
+              title: Search engine optimisation
+              underline: true
+            header.seo_title:
+              type: text
+              label: SEO title
+              help: "Shown in browser tabs and search results. Leave blank to use \"Page title | Site name\". Aim for under 60 characters."
+            header.metadata.description:
+              type: textarea
+              label: Meta description
+              rows: 3
+              help: "Shown under the title in search results. Aim for 120–160 characters."
+            header.metadata.keywords:
+              type: text
+              label: Meta keywords
+              help: "Comma-separated. Optional – most search engines ignore these, but some directories use them."
+            header.robots:
+              type: select
+              label: Search engine visibility
+              options:
+                index,follow: Visible to search engines (default)
+                noindex,follow: Hide from search (noindex)
+                noindex,nofollow: Hide and do not follow links
+              default: index,follow
+            header.canonical:
+              type: text
+              label: Canonical URL
+              help: Only set this if the same content lives at another address.
+            social_s:
+              type: section
+              title: Social sharing & listings
+              underline: true
+            header.og_image:
+              type: pagemediaselect
+              label: Social sharing image
+              preview_images: true
+              help: "Recommended 1200 × 630 px. Falls back to the card image, then the site default."
+            header.summary:
+              type: textarea
+              label: Short summary
+              rows: 3
+              help: Shown on cards and listing pages that link to this page.
+            header.card_image:
+              type: pagemediaselect
+              label: Card image
+              preview_images: true
+              help: Image shown on cards that link to this page.
+            header.nav_group:
+              type: text
+              label: Menu group
+              help: "Optional. Groups pages under a heading inside the \"Our Services\" dropdown."
+        options:
+          fields:
+            publishing:
+              fields:
+                header.metadata:
+                  unset@: true

@@ -1,0 +1,7 @@
+{% if form.message %}
+  {% set inline_errors = form.inline_errors is not null ? form.inline_errors : config.plugins.form.inline_errors(false) %}
+  {% set message = (inline_errors and form.messages) ? 'Please check the highlighted fields and try again.' : form.message %}
+  <div class="form-messages" role="status" aria-live="polite">
+    <div class="notice notice--{{ form.status == 'error' ? 'error' : 'success' }}">{{ message|raw }}</div>
+  </div>
+{% endif %}

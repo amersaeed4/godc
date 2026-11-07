@@ -1,0 +1,7 @@
+{# Render a shared form by name. Usage: {% include 'partials/form.html.twig' with {'form_name': 'quick-booking'} %} #}
+{% set shared_form = forms(form_name) %}
+{% if shared_form %}
+  {% include 'forms/form.html.twig' with {'form': shared_form} %}
+{% else %}
+  <p class="notice notice--error">Form “{{ form_name }}” was not found. Check the “Site Forms” page.</p>
+{% endif %}

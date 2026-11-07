@@ -1,0 +1,17 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/ui.html.twig' as ui %}
+{% block content %}
+{% set h = page.header %}
+{% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title ?: page.title, 'lead': h.hero.text} %}
+<section class="section">
+  <div class="container">
+    {% if h.children_title %}{{ ui.head(null, h.children_title) }}{% endif %}
+    <div class="doctor-list">
+      {% for d in page.children.visible %}
+        {% include 'partials/doctor-feature.html.twig' with {'dp': d, 'featured': loop.first} %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% include 'partials/cta-band.html.twig' with {'cta': {'eyebrow': 'Not sure which doctor to see?', 'title': 'Tell us about your health goals', 'text': 'Our team will guide you to the right doctor and service.', 'button_label': 'Book an Appointment'}} %}
+{% endblock %}

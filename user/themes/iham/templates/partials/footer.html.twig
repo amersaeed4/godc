@@ -1,0 +1,80 @@
+{% import 'macros/ui.html.twig' as ui %}
+{% set theme = config.themes.iham %}
+{% set contact = theme.contact %}
+{% set social = theme.social %}
+{% set root_pages = pages.children.visible %}
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col footer-col--brand">
+      <a class="footer-logo" href="{{ base_url_relative ?: '/' }}" aria-label="{{ theme.brand.name }}"><img src="{{ url('theme://images/logo-stacked.png') }}" alt="{{ theme.brand.name }}" width="603" height="553" loading="lazy"></a>
+      {% if theme.footer.about %}<p>{{ theme.footer.about }}</p>{% endif %}
+      <ul class="social">
+        {% for key, label in {'facebook': 'Facebook', 'instagram': 'Instagram', 'linkedin': 'LinkedIn', 'youtube': 'YouTube', 'x': 'X'} %}
+          {% if social[key] %}<li><a href="{{ social[key] }}" target="_blank" rel="noopener" aria-label="{{ label }}">{{ ui.icon(key == 'x' ? 'x-twitter' : key) }}</a></li>{% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% set small_groups = [] %}
+    {% set big_groups = [] %}
+    {% for p in root_pages if p.children.visible|length %}
+      {% if p.children.visible|length > 6 %}{% set big_groups = big_groups|merge([p]) %}{% else %}{% set small_groups = small_groups|merge([p]) %}{% endif %}
+    {% endfor %}
+
+    {% if small_groups|length %}
+    <div class="footer-col footer-col--stack">
+      {% for p in small_groups %}
+      <div class="footer-block">
+        <h3 class="footer-title">{{ p.menu }}</h3>
+        <ul class="footer-links">
+          {% for c in p.children.visible %}<li><a href="{{ c.url }}">{{ c.menu }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% for p in big_groups %}
+    <div class="footer-col footer-col--wide">
+      <h3 class="footer-title">{{ p.menu }}</h3>
+      <ul class="footer-links footer-links--cols">
+        {% for c in p.children.visible %}<li><a href="{{ c.url }}">{{ c.menu }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+
+    <div class="footer-col footer-col--contact">
+      <h3 class="footer-title">Our Clinics</h3>
+      {% if theme.locations|length %}
+      {% for loc in theme.locations %}
+      <div class="footer-clinic">
+        <p class="footer-clinic__name">{{ loc.name }}</p>
+        <ul class="footer-contact">
+          {% if loc.address %}<li>{{ ui.icon('map-pin') }}<a href="{{ loc.map_link }}" target="_blank" rel="noopener">{{ loc.address }}</a></li>{% endif %}
+          {% if loc.phone %}<li>{{ ui.icon('phone') }}<a href="tel:{{ loc.phone|tel }}">{{ loc.phone }}</a></li>{% endif %}
+          {% if loc.email %}<li>{{ ui.icon('mail') }}<a href="mailto:{{ loc.email }}">{{ loc.email }}</a></li>{% endif %}
+          {% if loc.hours %}<li>{{ ui.icon('clock') }}<span>{{ loc.hours }}</span></li>{% endif %}
+        </ul>
+      </div>
+      {% endfor %}
+      {% else %}
+      <ul class="footer-contact">
+        {% if contact.phone %}<li>{{ ui.icon('phone') }}<a href="tel:{{ contact.phone|tel }}">{{ contact.phone }}</a></li>{% endif %}
+        {% if contact.email %}<li>{{ ui.icon('mail') }}<a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>{% endif %}
+        {% if contact.address %}<li>{{ ui.icon('map-pin') }}<a href="{{ contact.map_link }}" target="_blank" rel="noopener">{{ contact.address }}</a></li>{% endif %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom__inner">
+      <p>© {{ 'now'|date('Y') }} {{ theme.footer.copyright ?: theme.brand.name }}{% if theme.footer.credit %} · {{ theme.footer.credit }}{% endif %}</p>
+      <ul class="footer-legal">
+        <li><a href="{{ '/privacy-policy'|href }}">Privacy Policy</a></li>
+        <li><a href="{{ '/sitemap'|href }}.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    {% if theme.footer.disclaimer %}<div class="container"><p class="footer-disclaimer">{{ theme.footer.disclaimer }}</p></div>{% endif %}
+  </div>
+</footer>

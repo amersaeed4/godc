@@ -1,0 +1,238 @@
+title: Corporate wellness
+extends@: default
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        content:
+          fields:
+            content:
+              unset@: true
+            header.media_order:
+              type: pagemedia
+              label: Page media
+              help: Upload images here, then pick them in the fields below.
+            hero_s:
+              type: section
+              title: Hero
+              underline: true
+            header.hero.eyebrow:
+              type: text
+              label: Eyebrow
+            header.hero.title:
+              type: text
+              label: Title
+            header.hero.subtitle:
+              type: text
+              label: Subtitle
+            header.hero.text:
+              type: textarea
+              label: Text
+              rows: 6
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.hero.image:
+              type: pagemediaselect
+              label: Image
+              preview_images: true
+            header.hero.button_label:
+              type: text
+              label: Button label
+            header.hero.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            sv_s:
+              type: section
+              title: Services
+              underline: true
+            header.services.title:
+              type: text
+              label: Section title
+            header.services.items:
+              type: list
+              label: Services
+              style: vertical
+              collapsed: true
+              btn_label: Add service
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+                  rows: 4
+                  help: Markdown is supported. Separate paragraphs with a blank line.
+                .list_title:
+                  type: text
+                  label: List heading
+                .list:
+                  type: textarea
+                  label: List items (one per line)
+                  rows: 5
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                  preview_images: true
+            wy_s:
+              type: section
+              title: Why invest
+              underline: true
+            header.why.eyebrow:
+              type: text
+              label: Eyebrow
+            header.why.title:
+              type: text
+              label: Title
+            header.why.intro:
+              type: textarea
+              label: Intro
+              rows: 2
+            header.why.items:
+              type: textarea
+              label: Benefits
+              rows: 6
+              help: One item per line.
+            ap_s:
+              type: section
+              title: Our approach
+              underline: true
+            header.approach.eyebrow:
+              type: text
+              label: Eyebrow
+            header.approach.title:
+              type: text
+              label: Title
+            header.approach.intro:
+              type: textarea
+              label: Intro
+              rows: 3
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.approach.items:
+              type: textarea
+              label: Steps
+              rows: 6
+              help: One item per line.
+            cl_s:
+              type: section
+              title: Who we work with
+              underline: true
+            header.clients.eyebrow:
+              type: text
+              label: Eyebrow
+            header.clients.title:
+              type: text
+              label: Title
+            header.clients.items:
+              type: textarea
+              label: Organisation types
+              rows: 6
+              help: One item per line.
+            header.clients.image:
+              type: pagemediaselect
+              label: Image
+              preview_images: true
+            cta_s:
+              type: section
+              title: Call to action
+              underline: true
+            header.cta.eyebrow:
+              type: text
+              label: Eyebrow
+            header.cta.title:
+              type: text
+              label: Title
+            header.cta.text:
+              type: textarea
+              label: Text
+              rows: 3
+              help: Markdown is supported. Separate paragraphs with a blank line.
+            header.cta.button_label:
+              type: text
+              label: Button label
+            header.cta.button_link:
+              type: text
+              label: Button link
+              placeholder: "/book-a-consultation"
+            fm_s:
+              type: section
+              title: Enquiry form
+              underline: true
+            header.enquiry.title:
+              type: text
+              label: Title
+            header.enquiry.form:
+              type: select
+              label: Form
+              options:
+                booking-appointment: Appointment request (name, phone, email, type)
+                quick-booking: Quick booking (with date & time)
+                consultation: Full consultation form
+                corporate-enquiry: Corporate enquiry
+                global-enquiry: Global health enquiry
+                review: Patient feedback
+              help: "Form definitions live in the hidden \"Site Forms\" page (Pages → forms)."
+        seo:
+          type: tab
+          title: SEO & Sharing
+          fields:
+            seo_s:
+              type: section
+              title: Search engine optimisation
+              underline: true
+            header.seo_title:
+              type: text
+              label: SEO title
+              help: "Shown in browser tabs and search results. Leave blank to use \"Page title | Site name\". Aim for under 60 characters."
+            header.metadata.description:
+              type: textarea
+              label: Meta description
+              rows: 3
+              help: "Shown under the title in search results. Aim for 120–160 characters."
+            header.metadata.keywords:
+              type: text
+              label: Meta keywords
+              help: "Comma-separated. Optional – most search engines ignore these, but some directories use them."
+            header.robots:
+              type: select
+              label: Search engine visibility
+              options:
+                index,follow: Visible to search engines (default)
+                noindex,follow: Hide from search (noindex)
+                noindex,nofollow: Hide and do not follow links
+              default: index,follow
+            header.canonical:
+              type: text
+              label: Canonical URL
+              help: Only set this if the same content lives at another address.
+            social_s:
+              type: section
+              title: Social sharing & listings
+              underline: true
+            header.og_image:
+              type: pagemediaselect
+              label: Social sharing image
+              preview_images: true
+              help: "Recommended 1200 × 630 px. Falls back to the card image, then the site default."
+            header.summary:
+              type: textarea
+              label: Short summary
+              rows: 3
+              help: Shown on cards and listing pages that link to this page.
+            header.card_image:
+              type: pagemediaselect
+              label: Card image
+              preview_images: true
+              help: Image shown on cards that link to this page.
+            header.nav_group:
+              type: text
+              label: Menu group
+              help: "Optional. Groups pages under a heading inside the \"Our Services\" dropdown."
+        options:
+          fields:
+            publishing:
+              fields:
+                header.metadata:
+                  unset@: true

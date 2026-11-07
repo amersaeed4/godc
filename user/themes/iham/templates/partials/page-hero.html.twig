@@ -1,0 +1,23 @@
+{# Params: eyebrow, title, lead (markdown), image (media name), alt, hero_form, hero_form_title, button_label, button_link, meta (html-safe string) #}
+{% import 'macros/ui.html.twig' as ui %}
+<section class="page-hero{{ hero_form ? ' page-hero--form' : '' }}{{ image ? ' page-hero--image' : '' }}">
+  <div class="container page-hero__inner">
+    <div class="page-hero__copy">
+      {% include 'partials/breadcrumbs.html.twig' %}
+      {% if eyebrow %}<p class="eyebrow eyebrow--light">{{ eyebrow }}</p>{% endif %}
+      <h1>{{ title }}</h1>
+      {% if lead %}<div class="page-hero__lead">{{ lead|markdown }}</div>{% endif %}
+      {% if button_label %}<div class="btn-row"><a class="btn btn-accent" href="{{ button_link|href }}">{{ button_label }} {{ ui.icon('arrow-right') }}</a></div>{% endif %}
+    </div>
+    {% if hero_form %}
+      <aside class="page-hero__form" id="hero-form">
+        <div class="form-card">
+          <h2 class="form-card__title">{{ hero_form_title ?: 'Book an Appointment' }}</h2>
+          {% include 'partials/form.html.twig' with {'form_name': hero_form} %}
+        </div>
+      </aside>
+    {% elseif image %}
+      <div class="page-hero__media">{{ ui.img(page, image, alt ?: title, '', true) }}</div>
+    {% endif %}
+  </div>
+</section>

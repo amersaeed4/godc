@@ -1,0 +1,146 @@
+#grav-login {
+    max-width: 30rem;
+    margin: 5rem auto;
+    background: #fcfcfc;
+    border: 4px solid #eee;
+    border-radius: 4px;
+    padding: 1rem 3rem 3rem 3rem;
+    text-align: center;
+}
+
+#grav-login .form-actions {
+    text-align: right;
+}
+
+#grav-logout {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.alert.info {
+    color: #27ae60;
+}
+
+.alert.error {
+    color: #e74c3c;
+}
+
+#grav-login p {
+    font-size: small;
+    margin: 1rem 0;
+    padding: 0;
+    text-align: center;
+}
+#grav-login .form-actions p {
+    margin-bottom: 0;
+}
+
+#grav-login .button {
+    vertical-align: middle;
+}
+
+#grav-login .delimiter {
+    display: block;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    line-height: 1.6rem;
+    position: relative;
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
+
+#grav-login .delimiter::after,
+#grav-login .delimiter::before {
+    background-color: #777777;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 0.8rem;
+    width: 40%;
+}
+#grav-login .delimiter::before {
+    background-image: linear-gradient(to right, #777777, #ffffff);
+    left: 0;
+}
+#grav-login .delimiter::after {
+    background-image: linear-gradient(to left, #777777, #ffffff);
+    right: 0;
+}
+
+#grav-login .rememberme {
+    display: inline-block;
+    float: left;
+    padding: 7px 0;
+    vertical-align: middle;
+}
+
+#grav-login .rememberme label {
+    font-weight: inherit;
+    display: inline;
+}
+
+.login-status {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.email-change-pending .notice p {
+    margin: 0 0 0.5rem 0;
+}
+
+.email-change-actions .button {
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+/* Passkeys */
+#grav-login .passkey-signin,
+#grav-login .passkey-second-step {
+    margin: 0 0 1rem 0;
+}
+#grav-login .passkey-button {
+    width: 100%;
+}
+#grav-login .passkey-or {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1rem 0 0 0;
+    opacity: 0.65;
+    font-size: 0.875rem;
+}
+#grav-login .passkey-or::before,
+#grav-login .passkey-or::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid currentColor;
+    opacity: 0.35;
+}
+.passkeys-list {
+    list-style: none;
+    margin: 0.5rem 0 1rem 0;
+    padding: 0;
+}
+.passkeys-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.passkeys-list li:first-child {
+    border-top: 0;
+}
+.passkeys-list .passkey-who small {
+    display: block;
+    opacity: 0.7;
+}
+.passkeys-list .passkey-actions {
+    white-space: nowrap;
+}
+.passkey-proof {
+    margin: 0 0 0.75rem 0;
+}
+.passkey-proof label {
+    display: block;
+}
