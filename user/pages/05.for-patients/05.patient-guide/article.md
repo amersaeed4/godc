@@ -2,7 +2,7 @@
 title: Patient Guide & Help Centre
 summary: Everything you need to know before, during and after your nutrition consultation.
 metadata:
-  description: "GODC patient guide and help centre: how to prepare for your nutrition consultation, the assessment process and answers to common questions."
+  description: "Patient guide and help centre of GODC (Gillani Obesity and Diabetes Clinic): how to prepare for your nutrition consultation, the assessment process and answers to common questions."
   keywords: patient guide, nutrition consultation, help centre, what to bring, nutrition assessment process
 hero:
   eyebrow: For Patients

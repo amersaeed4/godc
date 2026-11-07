@@ -2,7 +2,7 @@
 title: After Care Program
 summary: Continuous healing, lifelong support and structured monitoring beyond treatment.
 metadata:
-  description: "GODC After Care Program: structured follow-up consultations, health monitoring, medication review, nutrition support and lifestyle coaching beyond treatment."
+  description: "GODC (Gillani Obesity and Diabetes Clinic) After Care Program: structured follow-up consultations, health monitoring, medication review, nutrition support and lifestyle coaching beyond treatment."
   keywords: after care program, follow-up care, recovery support, health monitoring, lifestyle coaching
 hero:
   eyebrow: For Patients

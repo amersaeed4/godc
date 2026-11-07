@@ -10,7 +10,7 @@ hero:
   title: Global Health Consulting
   subtitle: Strengthening Health Systems. Advancing Sustainable Development.
   text: |-
-    At GODC, we partner with governments, healthcare organizations, development agencies, NGOs, UN organizations, corporations, and the private sector to strengthen health systems, improve program performance, and create sustainable impact. Our work goes beyond providing technical advice. We collaborate with organizations to solve complex challenges, transform ideas into measurable results, and build systems that continue to deliver value long after a project is completed.
+    At GODC (Gillani Obesity and Diabetes Clinic), we partner with governments, healthcare organizations, development agencies, NGOs, UN organizations, corporations, and the private sector to strengthen health systems, improve program performance, and create sustainable impact. Our work goes beyond providing technical advice. We collaborate with organizations to solve complex challenges, transform ideas into measurable results, and build systems that continue to deliver value long after a project is completed.
 
     Combining expertise in global health, public health, program management, policy development, governance, and workforce development, we help organizations make informed decisions, strengthen capacity, and improve outcomes for the communities they serve.
   button_label: Discuss Your Requirements

@@ -5,11 +5,11 @@ metadata:
   description: "GODC – Gillani Obesity and Diabetes Clinic in Lahore: Prof. Dr. Mohsin Gillani (bariatric, laparoscopic and diabetes surgery) and Dr. Arooj Gillani (lifestyle medicine and clinical nutrition). Book a consultation."
   keywords: lifestyle medicine Lahore, clinical nutritionist Lahore, Dr Arooj Gillani, diabetes diet, chronic disease management, corporate wellness Pakistan
 hero:
-  eyebrow: Prof. Dr. Mohsin Gillani · Dr Arooj Gillani
+  eyebrow: GODC – Gillani Obesity and Diabetes Clinic
   title: Lifestyle Medicine for Better Health
   text: Evidence-based care that helps prevent, manage, and improve chronic health conditions through sustainable lifestyle changes.
   text2: |-
-    At GODC, Prof. Dr. Mohsin Gillani and Dr. Arooj Gillani partner with patients to improve their health through advanced surgical expertise and the principles of Lifestyle Medicine. Our approach combines medical expertise with personalized care to address the root causes of disease, empowering you to make lasting changes that support your long-term well-being.
+    At GODC (Gillani Obesity and Diabetes Clinic), Prof. Dr. Mohsin Gillani and Dr. Arooj Gillani partner with patients to improve their health through advanced surgical expertise and the principles of Lifestyle Medicine. Our approach combines medical expertise with personalized care to address the root causes of disease, empowering you to make lasting changes that support your long-term well-being.
 
     Whether you are looking to prevent disease, better manage an existing condition, or improve your overall health, we are here to support you every step of the way.
   primary_label: Book a Consultation
@@ -94,7 +94,7 @@ booking:
 doctors:
   eyebrow: Our Doctors
   title: Meet the doctors who lead your care
-  text: Surgical expertise in obesity, diabetes and advanced laparoscopic surgery, together with clinical nutrition and lifestyle medicine, under one roof.
+  text: Surgical expertise in obesity, diabetes and advanced laparoscopic surgery, together with clinical nutrition and lifestyle medicine, under one roof at GODC – Gillani Obesity and Diabetes Clinic.
   items:
     - page: "/our-doctors/dr-mohsin-gillani"
     - page: "/our-doctors/dr-arooj-fatima-gillani"

@@ -3,7 +3,7 @@ title: Corporate Wellness
 summary: Evidence-based workplace wellness programs for healthier employees and stronger organizations.
 nav_group: For Organisations
 metadata:
-  description: "Corporate wellness programs by GODC: health seminars, employee health assessments, executive wellness and workplace campaigns built on Lifestyle Medicine in Pakistan."
+  description: "Corporate wellness programs by GODC (Gillani Obesity and Diabetes Clinic): health seminars, employee health assessments, executive wellness and workplace campaigns built on Lifestyle Medicine in Pakistan."
   keywords: corporate wellness Pakistan, employee health assessment, workplace wellness program, executive health, wellness seminars Lahore
 hero:
   eyebrow: For Organisations

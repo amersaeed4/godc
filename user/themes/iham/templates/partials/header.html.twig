@@ -30,8 +30,9 @@
 
   <div class="navbar">
     <div class="container navbar__inner">
-      <a class="brand" href="{{ base_url_relative ?: '/' }}" aria-label="{{ theme.brand.name }} – home">
-        <img src="{{ url('theme://images/logo-header.png') }}" alt="{{ theme.brand.name }}" width="603" height="494">
+      <a class="brand" href="{{ base_url_relative ?: '/' }}" title="{{ theme.seo.site_name }} – {{ theme.brand.name }}" aria-label="{{ theme.seo.site_name }} – {{ theme.brand.name }} – home">
+        <img src="{{ url('theme://images/logo-header.png') }}" alt="{{ theme.seo.site_name }} – {{ theme.brand.name }}" width="603" height="494">
+        <span class="brand__name" aria-hidden="true">Gillani Obesity<br>&amp; Diabetes Clinic</span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">

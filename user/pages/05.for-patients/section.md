@@ -2,7 +2,7 @@
 title: For Patients
 summary: Guides, resources and information for patients and their families.
 metadata:
-  description: "Information for GODC patients: how to prepare for your visit, what to expect, aftercare, patient guides, resources and satisfaction results."
+  description: "Information for patients of GODC – Gillani Obesity and Diabetes Clinic: how to prepare for your visit, what to expect, aftercare, patient guides, resources and satisfaction results."
 hero:
   eyebrow: For Patients
   title: Information for patients and visitors

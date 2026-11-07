@@ -20,7 +20,7 @@ locations:
     email: drmohsingillani@gmail.com
     hours: 'Mon - Sat: 9 AM - 6 PM'
     map_link: 'https://www.google.com/maps/search/?api=1&query=Maulana+Shaukat+Ali+Rd+Johar+Town+Lahore'
-  - name: 'GODC – Gulberg II'
+  - name: 'Gillani Obesity and Diabetes Clinic – Gulberg II'
     short: 'Gulberg II'
     doctor: 'Dr. Arooj Fatima Gillani'
     address: '30F Main Boulevard, Gulberg II, Lahore'
@@ -47,7 +47,7 @@ header:
   cta_label: 'Book an Appointment'
   cta_link: '/book-a-consultation'
 footer:
-  about: 'Surgical and medical care for obesity and diabetes, with evidence-based lifestyle medicine and clinical nutrition, led by Prof. Dr. Mohsin Gillani and Dr. Arooj Fatima Gillani.'
+  about: 'GODC stands for Gillani Obesity and Diabetes Clinic. Surgical and medical care for obesity and diabetes, with evidence-based lifestyle medicine and clinical nutrition, led by Prof. Dr. Mohsin Gillani and Dr. Arooj Fatima Gillani.'
   copyright: 'GODC – Gillani Obesity and Diabetes Clinic'
   credit: ''
   disclaimer: 'The information on this website is for general education and does not replace advice from a qualified healthcare professional.'

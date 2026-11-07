@@ -1,0 +1,72 @@
+---
+# cPanel > Git™ Version Control deployment for the GODC website (Grav CMS).
+#
+# How it works: when you click "Deploy HEAD Commit" (or a push triggers it), cPanel runs the tasks
+# below from the repository folder. The site is synced into DEPLOYPATH with rsync:
+#   - new and changed files are copied,
+#   - files that were deleted from the repository are DELETED from the live site too,
+#   - live data that must survive deployments is never touched (see the exclude list).
+#
+# Before the first deploy, check DEPLOYPATH below. Examples:
+#   main domain (godc.pk) ..... $HOME/public_html/
+#   subdomain / add-on domain .. $HOME/public_html/<folder>/      (the document root cPanel shows for it)
+# Tip: to preview a deployment without changing anything, temporarily add --dry-run --itemize-changes
+# to the rsync line and read the deployment log in cPanel.
+#
+# Everything the site stores at runtime is kept OUT of git (see .gitignore) and PROTECTED here:
+#   user/accounts   admin users            user/data      form submissions, flex data, licences
+#   cache tmp logs backup images assets    (Grav work folders)
+#   *-private.php   generated secret keys  user/config/versions.yaml
+#   .well-known cgi-bin error_log ...      files cPanel / AutoSSL / PHP keep in the web root
+#
+# NOTE: pages and settings edited in the LIVE admin are part of the synced folders (user/pages, user/themes,
+# user/config). The next deployment replaces them with the repository version. Commit changes made on the
+# server back to git first, or add "--exclude=/user/pages/" to the rsync line to keep live content untouched.
+
+deployment:
+  tasks:
+    # 1) Where the site lives on the server (keep the trailing slash).
+    - export DEPLOYPATH=$HOME/public_html/
+
+    # 2) Make sure Grav's work folders exist (they are not stored in git).
+    - >-
+      test -n "$DEPLOYPATH" && test "$DEPLOYPATH" != "/" &&
+      /bin/mkdir -p "$DEPLOYPATH" "$DEPLOYPATH/cache" "$DEPLOYPATH/logs" "$DEPLOYPATH/tmp"
+      "$DEPLOYPATH/backup" "$DEPLOYPATH/images" "$DEPLOYPATH/assets"
+      "$DEPLOYPATH/user/data" "$DEPLOYPATH/user/accounts"
+
+    # 3) Sync the repository into the web root. --delete removes files that no longer exist in git.
+    #    Excluded paths are neither copied nor deleted. Includes must come before the excludes they override.
+    - >-
+      test -n "$DEPLOYPATH" && test "$DEPLOYPATH" != "/" &&
+      /usr/bin/rsync -rlptD --delete --chmod=D755,F644
+      --include=/user/accounts/.htaccess
+      --include=/user/data/.htaccess
+      --exclude=/.git/
+      --exclude=/.cpanel.yml
+      --exclude=/.gitignore
+      --exclude=/.gitattributes
+      --exclude=.DS_Store
+      --exclude=/.well-known/
+      --exclude=/cgi-bin/
+      --exclude=/error_log
+      --exclude=/php_errorlog
+      --exclude=/.htpasswd
+      --exclude=/.user.ini
+      --exclude=/php.ini
+      --exclude=/cache/
+      --exclude=/tmp/
+      --exclude=/logs/
+      --exclude=/backup/
+      --exclude=/images/
+      --exclude=/assets/
+      --exclude=/user/accounts/*
+      --exclude=/user/data/*
+      --exclude=/user/config/versions.yaml
+      --exclude=*-private.php
+      ./ "$DEPLOYPATH"
+
+    # 4) Clear Grav's cache so the new templates, styles and content are picked up immediately.
+    - >-
+      test -n "$DEPLOYPATH" && test -d "$DEPLOYPATH/cache" &&
+      /usr/bin/find "$DEPLOYPATH/cache" -mindepth 1 -delete

@@ -20,7 +20,7 @@ You can reach us using the details on our contact page. Our friendly and knowled
 
 ## Registration
 
-When you arrive at GODC, our reception team will warmly welcome you and assist you with the registration process. We will confirm your personal details, appointment information, and any required documentation to ensure your visit begins smoothly.
+When you arrive at GODC (Gillani Obesity and Diabetes Clinic), our reception team will warmly welcome you and assist you with the registration process. We will confirm your personal details, appointment information, and any required documentation to ensure your visit begins smoothly.
 
 A member of our healthcare team may review your medical history, current medications, allergies, and any recent health concerns before your consultation or treatment. This information helps us provide safe, personalized, and effective care.
 

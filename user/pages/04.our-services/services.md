@@ -2,7 +2,7 @@
 title: Our Services
 summary: Specialist clinical nutrition and lifestyle medicine services for prevention, chronic disease management and recovery.
 metadata:
-  description: "Explore GODC’s clinical and critical care nutrition services: obesity, diabetes, heart, kidney, neurological, musculoskeletal, geriatric, oncology and preventive nutrition in Lahore."
+  description: "Explore the services of GODC – Gillani Obesity and Diabetes Clinic: bariatric and diabetes surgery, advanced laparoscopic surgery, clinical and critical care nutrition, obesity, diabetes, heart, kidney, neurological, musculoskeletal, geriatric, oncology and preventive nutrition in Lahore."
   keywords: clinical nutrition services Lahore, lifestyle medicine, medical nutrition therapy, critical care nutrition, diabetes diet, renal diet
 hero:
   eyebrow: Our Services
@@ -241,7 +241,7 @@ service_items:
     text: Persistent pain is influenced by inflammation, sleep quality, stress, activity levels and nutritional status. We provide an integrated plan addressing each of these factors to reduce pain intensity and restore daily function.
     why: We address the whole picture, including sleep, stress and nutrition, rather than treating pain alone.
 more:
-  title: More ways GODC can help
+  title: More ways GODC (Gillani Obesity and Diabetes Clinic) can help
   items:
     - title: Lifestyle Medicine
       text: "Six evidence-based pillars of health: nutrition, physical activity, sleep, stress, social connection and avoidance of harmful substances."

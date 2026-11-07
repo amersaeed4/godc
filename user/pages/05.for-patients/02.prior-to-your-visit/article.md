@@ -18,7 +18,7 @@ cta:
 
 ## Preparing for Your Visit
 
-We understand that visiting a healthcare facility can feel overwhelming, but our dedicated team at GODC is here to make your experience as comfortable and stress-free as possible. We are committed to providing compassionate care, clear guidance, and personalized support throughout your healthcare journey.
+We understand that visiting a healthcare facility can feel overwhelming, but our dedicated team at GODC (Gillani Obesity and Diabetes Clinic) is here to make your experience as comfortable and stress-free as possible. We are committed to providing compassionate care, clear guidance, and personalized support throughout your healthcare journey.
 
 If you have any questions before your appointment, please feel free to contact our team. Our healthcare professionals are always available to provide the information you need and ensure you feel confident and prepared for your visit.
 
@@ -28,7 +28,7 @@ If you have any questions before your visit, please don’t hesitate to contact 
 
 ## About GODC
 
-GODC is committed to providing a safe, comfortable, and welcoming environment for every patient. Our facility is equipped with accessible entrances and patient-friendly amenities to ensure a smooth healthcare experience.
+Gillani Obesity and Diabetes Clinic (GODC) is committed to providing a safe, comfortable, and welcoming environment for every patient. Our facility is equipped with accessible entrances and patient-friendly amenities to ensure a smooth healthcare experience.
 
 If you are unable to attend your scheduled appointment, please inform our team as early as possible so we can assist with rescheduling and make your appointment available for other patients.
 

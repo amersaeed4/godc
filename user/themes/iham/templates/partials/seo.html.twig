@@ -35,7 +35,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="{{ url('theme://images/favicon-192.png') }}">
 <link rel="apple-touch-icon" href="{{ url('theme://images/apple-touch-icon.png') }}">
 
-<meta property="og:site_name" content="{{ site_name|e('html_attr') }}">
+<meta property="og:site_name" content="{{ (site_name ~ ' – ' ~ brand.name)|e('html_attr') }}">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="{{ page.template == 'post' ? 'article' : 'website' }}">
 <meta property="og:title" content="{{ page_title|e('html_attr') }}">
@@ -62,6 +62,8 @@
   '@type': seo.business_type ?: 'MedicalClinic',
   '@id': base ~ '/#organization',
   'name': brand.name,
+  'alternateName': site_name,
+  'legalName': brand.name,
   'url': base ~ '/',
   'logo': logo_abs,
   'image': og_url,

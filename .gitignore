@@ -1,0 +1,37 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local environment
+/.env
+
+# Grav work folders (rebuilt automatically; never deploy or commit)
+/cache/*
+!/cache/.gitkeep
+/tmp/*
+!/tmp/.gitkeep
+/logs/*
+!/logs/.gitkeep
+/backup/*
+!/backup/.gitkeep
+/images/*
+!/images/.gitkeep
+/assets/*
+!/assets/.gitkeep
+
+# Live data: admin users, form submissions, flex objects, licences.
+# Kept out of git so private data is never published and deployments can never overwrite it.
+/user/accounts/*
+!/user/accounts/.htaccess
+!/user/accounts/.gitkeep
+/user/data/*
+!/user/data/.htaccess
+!/user/data/.gitkeep
+
+# Secret keys generated per installation
+*-private.php
+
+# Installation state written by Grav
+/user/config/versions.yaml

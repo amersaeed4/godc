@@ -3,7 +3,7 @@ title: Lifestyle Medicine
 summary: Six evidence-based pillars of health, delivered as a personalised clinical programme.
 nav_group: Lifestyle & Programmes
 metadata:
-  description: "Lifestyle Medicine at GODC: six evidence-based pillars — nutrition, physical activity, restorative sleep, stress management, social connection and avoiding harmful substances."
+  description: "Lifestyle Medicine at GODC (Gillani Obesity and Diabetes Clinic): six evidence-based pillars — nutrition, physical activity, restorative sleep, stress management, social connection and avoiding harmful substances."
   keywords: lifestyle medicine Lahore, six pillars of lifestyle medicine, preventive health, chronic disease reversal, lifestyle medicine consultation
 hero:
   eyebrow: Our Services

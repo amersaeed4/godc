@@ -2,7 +2,7 @@
 title: Blog
 summary: Evidence-based articles and practical tips on Lifestyle Medicine, nutrition and prevention.
 metadata:
-  description: "The GODC blog: evidence-based articles on Lifestyle Medicine, nutrition, heart health, physical activity and disease prevention from our clinical team."
+  description: "The GODC (Gillani Obesity and Diabetes Clinic) blog: evidence-based articles on Lifestyle Medicine, nutrition, heart health, physical activity and disease prevention from our clinical team."
   keywords: lifestyle medicine blog, nutrition articles, heart health tips, disease prevention
 hero:
   eyebrow: Patient Education

@@ -95,6 +95,12 @@ class Iham extends Theme
             return $base . ($v === '/' ? '/' : rtrim($v, '/'));
         }));
 
+        // Cache-busting version for theme assets: changes whenever the file changes.
+        $twig->twig->addFunction(new \Twig\TwigFunction('asset_v', function (string $path): string {
+            $file = $this->grav['locator']->findResource('theme://' . ltrim($path, '/'), true);
+            return $file && is_file($file) ? (string) filemtime($file) : '1';
+        }));
+
         // tel: link from a human-readable phone number.
         $twig->twig->addFilter(new \Twig\TwigFilter('tel', function ($value): string {
             return preg_replace('/[^\d+]/', '', (string) $value);

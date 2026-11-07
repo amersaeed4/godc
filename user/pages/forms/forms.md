@@ -225,7 +225,7 @@ forms:
           required: true
       newsletter:
         type: checkbox
-        label: Keep me up to date with news and offers from GODC
+        label: Keep me up to date with news and offers from GODC (Gillani Obesity and Diabetes Clinic)
       honeypot:
         type: honeypot
     buttons:

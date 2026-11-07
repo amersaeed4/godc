@@ -2,7 +2,7 @@
 title: Patient Resources
 summary: Prepare for your consultation, know what to expect and find answers to common questions.
 metadata:
-  description: "Patient resources at GODC: how to prepare for your consultation, what to expect, follow-up care and answers to frequently asked questions about Lifestyle Medicine."
+  description: "Patient resources at GODC (Gillani Obesity and Diabetes Clinic): how to prepare for your consultation, what to expect, follow-up care and answers to frequently asked questions about Lifestyle Medicine."
   keywords: patient resources, lifestyle medicine FAQ, prepare for consultation, online consultation, follow-up care
 hero:
   eyebrow: Patient Resources

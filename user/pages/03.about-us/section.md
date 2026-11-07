@@ -1,6 +1,6 @@
 ---
 title: About Us
-summary: Meet the people and principles behind GODC.
+summary: Meet the people and principles behind GODC – Gillani Obesity and Diabetes Clinic.
 metadata:
   description: "About GODC – Gillani Obesity and Diabetes Clinic: our story, our values and the clinical leadership team behind evidence-based Lifestyle Medicine in Lahore."
 hero:

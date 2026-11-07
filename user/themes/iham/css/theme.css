@@ -725,3 +725,8 @@ p { margin: 0 0 1rem; }
   .submenu--mega .submenu__col--wide { grid-column: auto; }
 }
 
+
+/* spelled-out clinic name beside the header logo (wide screens only) */
+.brand { display: inline-flex; align-items: center; gap: .85rem; text-decoration: none; }
+.brand__name { display: none; font: 500 .64rem/1.55 var(--font-body); letter-spacing: .17em; text-transform: uppercase; color: var(--olive-300); white-space: nowrap; }
+@media (min-width: 1400px) { .brand__name { display: block; } }

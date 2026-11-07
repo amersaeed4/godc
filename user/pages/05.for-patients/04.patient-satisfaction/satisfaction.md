@@ -9,7 +9,7 @@ hero:
   title: Patient Satisfaction
   image: Patient-Satisfaction.webp
 intro: |-
-  At GODC, our goal is to provide every patient with exceptional healthcare, compassionate support, and the highest standards of clinical excellence. We believe that listening to our patients is essential to continually improving the quality of our services and overall patient experience.
+  At GODC (Gillani Obesity and Diabetes Clinic), our goal is to provide every patient with exceptional healthcare, compassionate support, and the highest standards of clinical excellence. We believe that listening to our patients is essential to continually improving the quality of our services and overall patient experience.
 
   Patient feedback is invaluable to us and helps us enhance every aspect of the care we provide. We are proud of our commitment to patient satisfaction and continuously strive to deliver safe, personalized, and high-quality healthcare for every individual who visits GODC.
 stats:
