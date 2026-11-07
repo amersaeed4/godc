@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/godcpk/public_html/
-    - /usr/bin/rsync -a --exclude=".git" --exclude=".gitignore" --exclude=".cpanel.yml" --exclude="/cache/" --exclude="/logs/" --exclude="/tmp/" --exclude="/backup/" --exclude="/images/" --exclude="/assets/" --exclude="/user/accounts/" --exclude="/user/data/" --exclude="/cgi-bin/" --exclude="/.well-known/" ./ $DEPLOYPATH
+    - /bin/cp -R index.php .htaccess composer.json bin system vendor user webserver-configs $DEPLOYPATH
     - /usr/bin/find $DEPLOYPATH -type d -not -path "*/cgi-bin*" -exec chmod 755 {} \;
     - /usr/bin/find $DEPLOYPATH -type f -not -path "*/cgi-bin*" -exec chmod 644 {} \;
     - /bin/rm -rf $DEPLOYPATH/cache/*
