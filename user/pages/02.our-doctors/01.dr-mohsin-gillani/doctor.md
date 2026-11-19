@@ -6,7 +6,7 @@ seo_title: "Prof. Dr. Mohsin Gillani | Bariatric, Laparoscopic & Diabetes Surgeo
 summary: "Consultant advanced laparoscopic, bariatric (obesity) and metabolic diabetes surgeon in Lahore with 25+ years of experience."
 metadata:
   description: "Prof. Dr. Mohsin Gillani: advanced laparoscopic, bariatric (obesity) and diabetes surgeon in Lahore with 25+ years of experience. Book an appointment."
-  keywords: Prof Dr Mohsin Gillani, bariatric surgeon Lahore, obesity surgery, diabetes surgeon, advanced laparoscopic surgeon, ALCOS
+  keywords: Prof Dr Mohsin Gillani, bariatric surgeon Lahore, obesity surgery, diabetes surgeon, advanced laparoscopic surgeon, ALCODS
 profile:
   name: Prof. Dr. Mohsin Gillani
   role: Advanced Laparoscopic, Bariatric & Diabetes Surgeon
@@ -22,7 +22,7 @@ profile:
 stats:
   - value: "25+"
     label: Years of experience in surgery
-  - value: ALCOS
+  - value: ALCODS
     label: Director, Iqra Medical Complex
   - value: CEO
     label: Scandinavian Obesity and Diabetes Clinic, Omar Hospital and Cardiac Centre, Johar Town
@@ -50,7 +50,7 @@ why:
   items: |-
     I have more than 25 years experience in the field of surgery.
     CEO of Scandinavian Obesity and Diabetes Clinic at Omar Hospital and Cardiac Centre Johar Town, Lahore.
-    Director of advanced laparoscopic, cancer and obesity surgery (ALCOS) at Iqra Medical Complex, Lahore.
+    Director of advanced laparoscopic, cancer and obesity surgery (ALCODS) at Iqra Medical Complex, Lahore.
 intro:
   title: About the clinic
   text: |-
@@ -73,8 +73,8 @@ clinic:
   title: "Visit our new facility. We're looking forward to seeing you!"
   address: "4, 25, 26 Maulana Shaukat Ali Rd, Block A Phase 1 Johar Town, Lahore, Punjab"
   hours: "Mon - Sat: 9 AM - 6 PM"
-  phone: "042 35174502"
-  email: "drmohsingillani@gmail.com"
+  phone: "+92 333 4500005"
+  email: "drmohsingillani@godc.pk"
   map_link: "https://www.google.com/maps/search/?api=1&query=Maulana+Shaukat+Ali+Rd+Johar+Town+Lahore"
   image: clinic.jpg
 cta:

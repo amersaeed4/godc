@@ -1,15 +1,15 @@
 ---
-title: "ALCOS – Advanced Laparoscopic, Cancer & Obesity Surgery"
-menu: ALCOS Surgery Centre
+title: "ALCODS – Advanced Laparoscopic, Cancer & Obesity Surgery"
+menu: ALCODS Surgery Centre
 summary: "Advanced Laparoscopic Cancer & Obesity Surgery: the only specialist centre of its kind in Lahore."
 nav_group: Surgical, Bariatric & Diabetes Care
 doctor: "/our-doctors/dr-mohsin-gillani"
 metadata:
-  description: "ALCOS, the Advanced Laparoscopic Cancer & Obesity Surgery centre in Lahore: laparoscopic, cancer and obesity surgery by a multidisciplinary team."
-  keywords: advanced laparoscopic surgery Lahore, cancer surgery, ALCOS Iqra Medical Complex, bariatric surgery
+  description: "ALCODS, the Advanced Laparoscopic Cancer & Obesity Surgery centre in Lahore: laparoscopic, cancer and obesity surgery by a multidisciplinary team."
+  keywords: advanced laparoscopic surgery Lahore, cancer surgery, ALCODS Iqra Medical Complex, bariatric surgery
 hero:
   eyebrow: Prof. Dr. Mohsin Gillani
-  title: ALCOS
+  title: ALCODS
   lead: "Advanced Laparoscopic Cancer & Obesity Surgery: the only specialist centre of its kind in Lahore."
   image: New-Project-39.jpg
 sidebar: true

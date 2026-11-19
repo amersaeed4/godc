@@ -17,8 +17,8 @@ blog:
 redirects:
   /homepage-v02: '/'
   /homepage: '/'
-  /about-iham: '/about-us/about-godc'
-  /about-us/about-iham: '/about-us/about-godc'
+  /about-iham: '/about-us'
+  /about-us/about-iham: '/about-us'
   /dr-arooj-fatima-gillani: '/our-doctors/dr-arooj-fatima-gillani'
   /about-us/dr-arooj-fatima-gillani: '/our-doctors/dr-arooj-fatima-gillani'
   /our-services: '/our-services'

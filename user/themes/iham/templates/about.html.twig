@@ -1,5 +1,21 @@
 {% extends 'partials/base.html.twig' %}
 {% import 'macros/ui.html.twig' as ui %}
+{% macro people(pg, members) %}
+{% import 'macros/ui.html.twig' as ui %}
+<div class="team-grid team-grid--people">
+  {% for m in members %}
+  <article class="team-card team-card--person">
+    <div class="team-card__photo{{ m.image and pg.media[m.image] ? '' : ' team-card__photo--empty' }}">{% if m.image and pg.media[m.image] %}{{ ui.img(pg, m.image, m.name) }}{% else %}{{ ui.icon('users') }}{% endif %}</div>
+    <div class="team-card__body">
+      {% if m.role %}<p class="team-card__role">{{ m.role }}</p>{% endif %}
+      <h3>{{ m.name }}</h3>
+      {% if m.credentials %}<p class="team-card__cred">{{ m.credentials }}</p>{% endif %}
+      {% if m.affiliations %}<p class="team-card__aff">{{ m.affiliations }}</p>{% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endmacro %}
 {% block content %}
 {% set h = page.header %}
 {% include 'partials/page-hero.html.twig' with {'eyebrow': h.hero.eyebrow, 'title': h.hero.title, 'image': h.hero.image} %}
@@ -29,22 +45,17 @@
   </div>
 </section>
 
+<section class="section section--mint">
+  <div class="container">
+    {{ ui.head('Management', h.management.title, h.management.text) }}
+    {{ _self.people(page, h.management.members) }}
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
-    {{ ui.head('Leadership', h.team.title, h.team.text) }}
-    <div class="team-grid">
-      {% for m in h.team.members %}
-      <article class="team-card">
-        <div class="team-card__photo">{{ ui.img(page, m.image, m.name) }}</div>
-        <div class="team-card__body">
-          <p class="team-card__role">{{ m.role }}</p>
-          <h3>{{ m.name }}</h3>
-          <p class="team-card__cred">{{ m.credentials }}</p>
-          {% if m.affiliations %}<p class="team-card__aff">{{ m.affiliations }}</p>{% endif %}
-        </div>
-      </article>
-      {% endfor %}
-    </div>
+    {{ ui.head('Our people', h.support.title, h.support.text) }}
+    {{ _self.people(page, h.support.members) }}
   </div>
 </section>
 

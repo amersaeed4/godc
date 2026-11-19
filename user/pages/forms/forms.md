@@ -189,7 +189,7 @@ forms:
         options:
           Obesity & Bariatric Surgery: Obesity & Bariatric Surgery
           Diabetes Care & Metabolic Surgery: Diabetes Care & Metabolic Surgery
-          Advanced Laparoscopic & Cancer Surgery (ALCOS): Advanced Laparoscopic & Cancer Surgery (ALCOS)
+          Advanced Laparoscopic & Cancer Surgery (ALCODS): Advanced Laparoscopic & Cancer Surgery (ALCODS)
           Medi Wellness: Medi Wellness
           Obesity & Metabolic Health: Obesity & Metabolic Health
           Cardiometabolic Disorders: Cardiometabolic Disorders

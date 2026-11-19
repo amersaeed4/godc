@@ -10,7 +10,9 @@
       <p class="eyebrow eyebrow--light">{{ pr.tagline }}</p>
       <h1>{{ pr.name }}</h1>
       <p class="page-hero__role">{{ pr.role }}</p>
+      {% if pr.position %}<p class="page-hero__role">{{ pr.position }}</p>{% endif %}
       {% if pr.bio %}<div class="page-hero__lead"><p>{{ pr.bio }}</p></div>{% endif %}
+      {% if pr.email %}<p class="page-hero__email"><a href="mailto:{{ pr.email }}">{{ pr.email }}</a></p>{% endif %}
       <div class="btn-row">
         <a class="btn btn-accent" href="{{ h.cta.button_link|href }}">{{ h.cta.button_label }} {{ ui.icon('arrow-right') }}</a>
         {% if h.specialisations.items|length %}<a class="btn btn-ghost" href="#specialisations">Specialisations</a>{% endif %}
@@ -168,5 +170,5 @@
 </section>
 {% endif %}
 
-{% include 'partials/cta-band.html.twig' with {'cta': h.cta} %}
+{% include 'partials/cta-band.html.twig' with {'cta': h.cta, 'phone': h.clinic.phone ?? null} %}
 {% endblock %}

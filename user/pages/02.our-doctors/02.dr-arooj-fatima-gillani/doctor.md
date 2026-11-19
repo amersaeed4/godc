@@ -3,38 +3,46 @@ title: Dr Arooj Fatima Gillani
 menu: Dr Arooj Fatima Gillani
 summary: Lifestyle Medicine Specialist in obesity and metabolic syndrome, with clinical, critical care, geriatric and oncological nutrition.
 metadata:
-  description: "Dr. Arooj Fatima Gillani (MBBS, MPH Nutrition England) — Lifestyle Medicine Specialist in obesity and metabolic syndrome, with clinical, critical care, geriatric and oncological nutrition at GODC, Lahore."
+  description: "Dr. Arooj Fatima Gillani (MBBS, FCPS Anaesthesia – Trained, MPH Nutrition UK, PhD Scholar) — Lifestyle Medicine Specialist in obesity and metabolic syndrome, with clinical, critical care, geriatric and oncological nutrition at GODC, Lahore."
   keywords: Dr Arooj Fatima Gillani, lifestyle medicine specialist Lahore, obesity metabolic syndrome nutrition, clinical nutritionist Lahore, critical care nutrition, geriatric nutrition, oncological nutrition
 profile:
   name: Dr Arooj Fatima Gillani
   role: Lifestyle Medicine Specialist
   image: Dr-Arooj-Fatima-Gillani.jpg
   tagline: Lifestyle Medicine & Clinical Nutrition
+  position: CEO, IHAM Lifestyle Consultancy
+  email: draroojgillani@godc.pk
   focus: "Obesity & Metabolic Syndrome · Clinical, Critical Care, Geriatric & Oncological Nutrition"
-  bio: "MBBS | MPH Nutrition (England). Lifestyle Medicine Specialist focused on obesity and metabolic syndrome, with expertise in clinical, critical care, geriatric and oncological nutrition."
+  bio: "MBBS | FCPS (Anaesthesia) – Trained | MPH Nutrition (UK) | PhD Scholar, EMIT. Lifestyle Medicine Specialist focused on obesity and metabolic syndrome, with expertise in clinical, critical care, geriatric and oncological nutrition."
   chips: |-
     Lifestyle Medicine
     Obesity & metabolic syndrome
     Clinical & critical care nutrition
     Geriatric & oncological nutrition
+stats:
+  - value: CEO
+    label: IHAM Lifestyle Consultancy
 education:
   title: Training & Education
   items:
     - degree: MBBS
       institution: Baqai Medical University Karachi
       logo: Baqai_Medical_University_logo.png
-    - degree: MPH Nutrition
-      institution: England
+    - degree: FCPS (Anaesthesia) – Trained
+      institution: College of Physicians & Surgeons Pakistan
+      logo: College_of_Physicians__Surgeons_Pakistanlogo.png
+    - degree: MPH (Nutrition)
+      institution: United Kingdom
       logo: coventry-university-logo-removebg-preview.png
-    - degree: Critical Care Certification
-      institution: Aga Khan University
+    - degree: Masters in Professional Global Development
+      institution: United Kingdom
+      logo: coventry-university-logo-removebg-preview.png
+    - degree: PhD Scholar
+      institution: EMIT – European Institute of Management Sciences
       logo: ""
-    - degree: Professional Global Development
-      institution: England
-      logo: coventry-university-logo-removebg-preview.png
 intro:
   title: Introduction
-  text: Dr. Arooj Fatima Gillani (MBBS, MPH Nutrition, England) is a Lifestyle Medicine Specialist with a focus on obesity and metabolic syndrome. Her expertise spans clinical, critical care, geriatric and oncological nutrition, and her practice bridges evidence-based nutritional science with medical and lifestyle interventions to accelerate recovery and drive disease reversal.
+  text: Dr. Arooj Fatima Gillani (MBBS, FCPS Anaesthesia – Trained, MPH Nutrition UK, PhD Scholar at EMIT – European Institute of Management Sciences) is a Lifestyle Medicine Specialist and CEO of IHAM Lifestyle Consultancy, with a focus on obesity and metabolic syndrome. Her expertise spans clinical, critical care, geriatric and oncological nutrition, and her practice bridges evidence-based nutritional science with medical and lifestyle interventions to accelerate recovery and drive disease reversal.
   points:
     - title: Advanced Clinical Protocols
       text: Expert implementation of ERAS (Enhanced Recovery After Surgery) protocols, metabolic syndrome reversal, and geriatric oncology nutrition.

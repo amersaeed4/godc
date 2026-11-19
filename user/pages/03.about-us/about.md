@@ -44,30 +44,69 @@ values:
     - title: Collaboration
       text: We believe better health outcomes are achieved through partnership between healthcare professionals, patients, families, and organizations.
       icon: users
-team:
-  title: Our Core Team
-  text: A multidisciplinary leadership team with international clinical, public health and nutrition experience.
+management:
+  title: Our Leadership
+  text: The people who lead and steer GODC.
   members:
-    - image: Dr-Arooj-Gillani-IHAM-Lifestyle-Medicine.webp
-      role: Chief Executive Officer (CEO)
-      name: Dr. Arooj Fatima Gillani
-      credentials: MBBS, MPH Nutrition (England), Critical Care Certification (Aga Khan), Professional Global Development (England)
+    - name: Prof Dr. Muhammad Mohsin Gillani
+      role: President
+      image: Prof-Mohsin-Gillani.png
+      credentials: Consultant Advanced Laparoscopic, Bariatric (Obesity) and Metabolic Diabetes Surgeon with 25+ years of experience in surgery
+      affiliations: Director, Iqra Medical Complex · CEO, Scandinavian Obesity and Diabetes Clinic, Omar Hospital and Cardiac Centre, Johar Town
+    - name: Dr Arooj Gillani
+      role: CEO, IHAM Lifestyle Consultancy
+      image: Dr-Arooj-Gillani.jpg
+      credentials: MBBS, FCPS (Anaesthesia) – Trained, MPH Nutrition (UK), Masters in Professional Global Development (UK), PhD Scholar (EMIT – European Institute of Management Sciences)
       affiliations: Lifestyle Medicine Specialist · Obesity & Metabolic Syndrome · Clinical, Critical Care, Geriatric & Oncological Nutrition
-    - image: Dr-Mubashir.webp
-      role: Director Planning and Development
-      name: Dr. Mubashir Sohail
-      credentials: Doctor of Clinical Nutrition, M.Phil. Human Nutrition and Dietetics
-      affiliations: Nutrition International, UNICEF, WHO, McKinsey & Company, Johns Hopkins University, Aga Khan University Hospital
-    - image: Dr-Komal.webp
+    - name: Dr Zain Ul Abidin Gillani
+      role: Director
+      image: Dr-Zain-Ul-Abidin-Gillani.jpg
+      credentials: MBBS
+    - name: Muhammad Amer Saeed
+      role: Director
+      image: Amer-Saeed.jpg
+      credentials: System Analyst, ERP Consultant
+      affiliations: Over 30 years in the Information Technology field. Successful implementations in the healthcare sector.
+support:
+  title: Medical & Support Team
+  text: The clinicians and professionals who care for our patients every day.
+  members:
+    - name: Dr Zain Ul Abidin Gillani
+      role: Director
+      image: Dr-Zain-Ul-Abidin-Gillani.jpg
+      credentials: MBBS
+    - name: Dr Komal Zakir
       role: Director Clinical Services
-      name: Dr. Komal Zakir
+      image: Dr-Komal.webp
       credentials: BS (Hons) Clinical Nutrition, MS Clinical Nutrition
       affiliations: WHO, UNICEF Certified
-    - image: Dr-Ujala.webp
+    - name: Dr Ujala Azeem
       role: Director Operations
-      name: Dr. Ujala Azeem
+      image: Dr-Ujala.webp
       credentials: Doctor of Clinical Nutrition, M.Phil. Human Nutrition and Dietetics
       affiliations: WHO, UNICEF, USAID, Nutrition International, Save the Children, Cornerstone OnDemand Foundation, Yale University, Stanford University, University of Copenhagen, University of Edinburgh, Ludwig Maximilian University of Munich Certified
+    - name: Dr Maria Bilal
+      role: Director
+      image: Dr-Maria-Bilal.jpg
+      credentials: BS in Doctor of Clinical Nutrition
+    - name: Dr Mehreen Rai Rabera
+      role: Director
+      image: Dr-Mehreen-Rai-Rabera.jpg
+      credentials: DND (Doctor of Nutrition and Dietetics), 5 years – The University of Faisalabad
+      affiliations: 2+ years clinical experience · National Hospital · Institute of Public Health
+    - name: Dr Muskaan Khan
+      role: Director
+      image: Dr-Muskaan-Khan.jpg
+      credentials: BS in Doctor of Clinical Nutrition
+    - name: Dr Mubashar Sohail
+      role: Director Planning and Development
+      image: Dr-Mubashir.webp
+      credentials: Doctor of Clinical Nutrition, M.Phil. Human Nutrition and Dietetics
+      affiliations: Nutrition International, UNICEF, WHO, McKinsey & Company, Johns Hopkins University, Aga Khan University Hospital
+    - name: Umar Nadeem Sindhu
+      role: Director
+      image: Umar-Nadeem-Sindhu.jpg
+      credentials: MBA Finance
 reasons:
   title: Why Patients Choose GODC
   text: Six reasons patients stay with us.
