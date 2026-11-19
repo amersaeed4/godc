@@ -2,7 +2,9 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/godcpk/public_html/
+    - export REPOPATH=$(pwd)
     - for i in $(ls -A | grep -vE '^(.git|.cpanel.yml|cache|logs|tmp|backup|images|assets|cgi-bin|.well-known)$'); do /bin/cp -R "$i" $DEPLOYPATH; done
+    - for d in user/pages user/themes; do if [ -d "$REPOPATH/$d" ] && [ -d "$DEPLOYPATH$d" ]; then (cd "$DEPLOYPATH$d" && /usr/bin/find . -type f | while IFS= read -r f; do [ -e "$REPOPATH/$d/$f" ] || /bin/rm -f "$f"; done); /usr/bin/find "$DEPLOYPATH$d" -depth -type d -empty -delete; fi; done
     - /usr/bin/find $DEPLOYPATH -type d -not -path "*/cgi-bin*" -exec chmod 755 {} \;
     - /usr/bin/find $DEPLOYPATH -type f -not -path "*/cgi-bin*" -exec chmod 644 {} \;
     - /bin/rm -rf $DEPLOYPATH/cache/*
