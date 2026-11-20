@@ -13,6 +13,7 @@ profile:
   position: CEO, IHAM Lifestyle Consultancy
   email: draroojgillani@godc.pk
   focus: "Obesity & Metabolic Syndrome · Clinical, Critical Care, Geriatric & Oncological Nutrition"
+  instagram: "https://www.instagram.com/dr_arooj_fatima_gillani"
   bio: "MBBS | FCPS (Anaesthesia) – Trained | MPH Nutrition (UK) | PhD Scholar, EMIT. Lifestyle Medicine Specialist focused on obesity and metabolic syndrome, with expertise in clinical, critical care, geriatric and oncological nutrition."
   chips: |-
     Lifestyle Medicine

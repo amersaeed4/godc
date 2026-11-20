@@ -13,6 +13,7 @@ profile:
   tagline: "Bariatric · Laparoscopic · Diabetes"
   image: baner-image.png
   card_image: baner-image-card.png
+  instagram: "https://www.instagram.com/drmohsingillani/"
   bio: Consultant advanced laparoscopic, bariatric (obesity) and metabolic diabetes surgeon in Lahore.
   chips: |-
     Bariatric (obesity) surgery
